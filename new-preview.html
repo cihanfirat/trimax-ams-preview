@@ -1,0 +1,1300 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trimax Management Services – Site Preview v2</title>
+<meta name="description" content="Association management services for chapters, professional associations and member-based organizations.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>/* =========================================================
+   Trimax Management Services — Global CSS (v2)
+   Paste into: Avada > Options > Custom CSS
+   All classes are prefixed "tms-" and scoped under ".tms" so they never clash with Avada.
+   Fonts: set Avada Global Options > Typography to Montserrat (headings) + Plus Jakarta Sans (body).
+   ========================================================= */
+:root{
+  /* brand */
+  --tms-navy:#215A78;          /* primary – headings, links */
+  --tms-navy-700:#1A4A63;
+  --tms-navy-900:#0F2E3F;      /* dark bands, text on orange */
+  --tms-navy-100:#DCE8EF;
+  --tms-navy-50:#EEF4F7;
+  --tms-orange:#FE8503;        /* accent – CTAs only */
+  --tms-orange-600:#E87700;
+  --tms-orange-text:#B05800;   /* orange used as text on white (AA 4.9:1) */
+  --tms-orange-50:#FFF4E8;
+  /* neutrals */
+  --tms-ink:#14212B;
+  --tms-muted:#52606B;
+  --tms-line:#E2E8ED;
+  --tms-bg:#F6F8FA;
+  --tms-white:#FFFFFF;
+  --tms-success:#1F7A4D;
+  /* system */
+  --tms-radius:12px;
+  --tms-radius-lg:20px;
+  --tms-shadow-sm:0 1px 2px rgba(15,46,63,.06);
+  --tms-shadow:0 1px 2px rgba(15,46,63,.05),0 12px 32px rgba(15,46,63,.08);
+  --tms-font-head:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --tms-font:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --tms-ease:cubic-bezier(.2,.7,.2,1);
+}
+
+/* ---------- Base (mobile first) ---------- */
+.tms{font-family:var(--tms-font);color:var(--tms-ink);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.tms *,.tms *::before,.tms *::after{box-sizing:border-box}
+.tms h1,.tms h2,.tms h3,.tms h4{font-family:var(--tms-font-head);color:var(--tms-navy-900);margin:0 0 .5em;line-height:1.15;letter-spacing:-.015em;text-wrap:balance}
+.tms h1{font-size:clamp(36px,6vw,60px);font-weight:800;letter-spacing:-.025em}
+.tms h2{font-size:clamp(28px,3.6vw,42px);font-weight:700}
+.tms h3{font-size:19px;font-weight:700}
+.tms p{margin:0 0 1em}
+.tms a{color:var(--tms-navy);text-decoration:none}
+.tms a:hover{text-decoration:underline;text-underline-offset:3px}
+.tms img{max-width:100%;height:auto;display:block}
+.tms ul,.tms ol{margin:0;padding:0;list-style:none}
+.tms :focus-visible{outline:3px solid var(--tms-orange);outline-offset:3px;border-radius:4px}
+.tms svg{flex:none}
+
+.tms-wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.tms-section{padding:72px 0}
+.tms-section--bg{background:var(--tms-bg)}
+.tms-section--tint{background:var(--tms-navy-50)}
+.tms-section--dark{background:var(--tms-navy-900);color:rgba(255,255,255,.82)}
+.tms-section--dark h2,.tms-section--dark h3{color:#fff}
+.tms-narrow{max-width:760px}
+.tms-center{text-align:center;margin-left:auto;margin-right:auto}
+.tms-head{margin-bottom:40px}
+.tms-head p{color:var(--tms-muted)}
+.tms-section--dark .tms-head p{color:rgba(255,255,255,.75)}
+.tms-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--tms-orange-text);margin-bottom:14px}
+.tms-eyebrow::before{content:"";width:18px;height:2px;background:var(--tms-orange);border-radius:2px}
+.tms-center .tms-eyebrow::before{display:none}
+.tms-section--dark .tms-eyebrow{color:#FFB466}
+.tms-lead{font-size:19px;color:var(--tms-muted);max-width:640px}
+.tms-center .tms-lead{margin-left:auto;margin-right:auto}
+
+/* ---------- Buttons ---------- */
+.tms-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.tms-center .tms-btns,.tms-btns--center{justify-content:center}
+.tms .tms-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 24px;border-radius:8px;font-family:var(--tms-font);font-size:16px;font-weight:700;line-height:1.2;border:2px solid transparent;cursor:pointer;transition:background-color .18s var(--tms-ease),border-color .18s var(--tms-ease),color .18s var(--tms-ease),transform .18s var(--tms-ease)}
+.tms .tms-btn:hover{text-decoration:none}
+.tms .tms-btn:active{transform:translateY(1px)}
+.tms .tms-btn svg{width:18px;height:18px}
+.tms .tms-btn--primary{background:var(--tms-orange);color:var(--tms-navy-900)}
+.tms .tms-btn--primary:hover{background:var(--tms-orange-600);color:var(--tms-navy-900)}
+.tms .tms-btn--outline{background:#fff;color:var(--tms-navy-900);border-color:#C5D3DC}
+.tms .tms-btn--outline:hover{border-color:var(--tms-navy);background:var(--tms-navy-50)}
+.tms .tms-btn--ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+.tms .tms-btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,.08);color:#fff}
+.tms .tms-btn--sm{min-height:44px;padding:10px 18px;font-size:15px}
+.tms-link{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--tms-navy)}
+.tms-link svg{width:16px;height:16px;transition:transform .18s var(--tms-ease)}
+a:hover > .tms-link svg,.tms-link:hover svg{transform:translateX(3px)}
+.tms-note{font-size:14px;color:var(--tms-muted);margin-top:14px}
+.tms-section--dark .tms-note{color:rgba(255,255,255,.7)}
+
+/* ---------- Grid helpers ---------- */
+.tms-grid{display:grid;gap:20px;grid-template-columns:1fr}
+.tms-split{display:grid;gap:40px;align-items:center}
+
+/* ---------- Icons ---------- */
+.tms-icon{width:48px;height:48px;border-radius:12px;background:var(--tms-navy-50);color:var(--tms-navy);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.tms-icon svg{width:24px;height:24px}
+
+/* ---------- Cards ---------- */
+.tms-card{background:#fff;border:1px solid var(--tms-line);border-radius:var(--tms-radius);padding:28px;height:100%}
+.tms-card p{color:var(--tms-muted);margin-bottom:0}
+.tms-card--link{display:flex;flex-direction:column;color:inherit;transition:border-color .18s var(--tms-ease),box-shadow .18s var(--tms-ease)}
+.tms-card--link:hover{border-color:var(--tms-navy);box-shadow:var(--tms-shadow);text-decoration:none}
+.tms-card--link .tms-link{margin-top:auto;padding-top:20px}
+
+/* ---------- Checklist ---------- */
+.tms-check li{position:relative;padding-left:32px;margin-bottom:12px}
+.tms-check li::before{content:"";position:absolute;left:0;top:3px;width:21px;height:21px;border-radius:50%;background:var(--tms-navy-50) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23215A78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/12px no-repeat}
+.tms-section--dark .tms-check li::before{background-color:rgba(255,255,255,.12);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFB466' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E")}
+.tms-check--2col{display:grid;gap:0 28px}
+
+/* ---------- Photo placeholder (replace with <img>) ---------- */
+.tms-photo{position:relative;border-radius:var(--tms-radius-lg);overflow:hidden;background:linear-gradient(135deg,#E3ECF2,#CBDAE4);aspect-ratio:4/3;display:flex;align-items:flex-end}
+.tms-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.tms-photo[data-label]::after{content:attr(data-label);margin:14px;padding:6px 10px;border-radius:6px;background:rgba(255,255,255,.9);font-size:12px;font-weight:600;color:var(--tms-muted)}
+.tms-todo{outline:2px dashed #E9B872;outline-offset:4px}
+
+/* ---------- HERO ---------- */
+.tms-hero{position:relative;padding:48px 0 64px;background:linear-gradient(180deg,#fff 0%,var(--tms-navy-50) 100%);overflow:hidden}
+.tms-hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(33,90,120,.09) 1px,transparent 1px);background-size:22px 22px;-webkit-mask-image:linear-gradient(180deg,transparent,#000 60%);mask-image:linear-gradient(180deg,transparent,#000 60%);pointer-events:none}
+.tms-hero .tms-wrap{position:relative}
+.tms-hero__grid{display:grid;gap:48px;align-items:center}
+.tms-hero__grid > *,.tms-split > *,.tms-story > *,.tms-fit > *,.tms-cta__grid > *,.tms-svc__grid > *,.tms-contact > *{min-width:0}
+.tms-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 8px;border-radius:999px;background:#fff;border:1px solid var(--tms-line);font-size:14px;font-weight:600;color:var(--tms-navy-900);margin-bottom:22px;box-shadow:var(--tms-shadow-sm)}
+.tms-pill b{background:var(--tms-orange-50);color:var(--tms-orange-text);border-radius:999px;padding:2px 10px;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.tms-hero h1 em{font-style:normal;color:var(--tms-navy);background:linear-gradient(transparent 70%,rgba(254,133,3,.28) 70%)}
+
+/* hero visual: "operations board" — pure HTML/CSS, no stock photo */
+.tms-board{position:relative;max-width:520px;margin:0 auto;width:100%}
+.tms-board__card{background:#fff;border:1px solid var(--tms-line);border-radius:var(--tms-radius-lg);box-shadow:var(--tms-shadow);padding:22px}
+.tms-board__top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.tms-board__top h3{font-size:16px;margin:0}
+.tms-board__brand{color:var(--tms-orange);font-weight:800}
+.tms-board__top span{font-size:12px;font-weight:600;color:var(--tms-muted);background:var(--tms-bg);padding:4px 10px;border-radius:999px}
+.tms-board__row{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--tms-line);font-size:15px}
+.tms-board__row .tms-icon{width:36px;height:36px;border-radius:10px;margin:0}
+.tms-board__row .tms-icon svg{width:18px;height:18px}
+.tms-board__row div{flex:1;min-width:0;line-height:1.35}
+.tms-board__row b{display:block;font-weight:600;color:var(--tms-ink)}
+.tms-board__row small{color:var(--tms-muted);font-size:13px}
+.tms-status{font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+.tms-status::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.tms-status--done{background:#E6F4EC;color:var(--tms-success)}
+.tms-status--prog{background:var(--tms-orange-50);color:var(--tms-orange-text)}
+.tms-board__am{display:flex;align-items:center;gap:12px;margin:-18px 0 0 auto;width:max-content;max-width:92%;position:relative;background:var(--tms-navy-900);color:#fff;border-radius:14px;padding:12px 16px;box-shadow:var(--tms-shadow);font-size:14px;line-height:1.35}
+.tms-board__am small{display:block;color:rgba(255,255,255,.7);font-size:12px}
+.tms-avatar{width:40px;height:40px;border-radius:50%;background:var(--tms-orange);color:var(--tms-navy-900);display:flex;align-items:center;justify-content:center;font-weight:800;font-family:var(--tms-font-head);font-size:14px;flex:none}
+.tms-board__cap{display:block;text-align:center;font-size:12px;color:var(--tms-muted);margin-top:12px}
+
+/* ---------- Logo band ---------- */
+.tms-logos{padding:40px 0;border-bottom:1px solid var(--tms-line);background:#fff}
+.tms-logos__in{display:grid;gap:28px;align-items:center}
+.tms-logos__label{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tms-muted);margin:0 0 12px}
+.tms-logos__client img{height:56px;width:auto}
+.tms-logos__row{display:grid;grid-template-columns:repeat(3,1fr);gap:4px 12px;align-items:center}
+.tms-logos__row img{width:100%;max-width:120px;height:auto;margin:0 auto;opacity:.75;filter:grayscale(1);transition:opacity .18s,filter .18s}
+.tms-logos__row img:hover{opacity:1;filter:none}
+
+/* ---------- Pain → outcome ---------- */
+.tms-pain{display:flex;flex-direction:column}
+.tms-pain h3{margin-bottom:8px}
+.tms-pain__out{display:flex;gap:10px;align-items:flex-start;margin-top:auto;padding-top:18px;border-top:1px dashed var(--tms-line);font-size:15px;font-weight:600;color:var(--tms-navy-900)}
+.tms-pain__out::before{content:"With us";flex:none;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--tms-orange-text);background:var(--tms-orange-50);border-radius:999px;padding:3px 9px;margin-top:2px}
+.tms-pain > p{margin-bottom:18px}
+
+/* ---------- Services bento ---------- */
+.tms-bento{display:grid;gap:20px;grid-template-columns:1fr}
+.tms-bento__feat{background:var(--tms-navy-900);border-color:var(--tms-navy-900);color:rgba(255,255,255,.8)}
+.tms-bento__feat h3{color:#fff;font-size:24px}
+.tms-bento__feat p{color:rgba(255,255,255,.78)}
+.tms-bento__feat .tms-icon{background:rgba(255,255,255,.1);color:#FFB466}
+.tms-bento__feat .tms-link{color:#FFB466}
+.tms-bento__feat:hover{border-color:var(--tms-orange)}
+.tms a.tms-bento__feat{color:rgba(255,255,255,.8)}
+.tms-bento__feat .tms-check{margin-top:20px;font-size:15px}
+.tms-bento__feat .tms-check li{color:#fff;font-weight:500}
+.tms-bento__feat .tms-check li::before{background-color:var(--tms-orange);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230F2E3F' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E")}
+.tms-tag{display:inline-block;align-self:flex-start;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--tms-orange);color:var(--tms-navy-900);border-radius:999px;padding:4px 10px;margin-bottom:14px}
+.tms-chips{display:flex;flex-wrap:wrap;gap:8px}
+.tms-chips span{font-size:14px;font-weight:600;padding:7px 12px;border-radius:999px;background:var(--tms-navy-50);color:var(--tms-navy-900)}
+
+/* ---------- Client story ---------- */
+.tms-story{display:grid;gap:36px;align-items:start}
+.tms-story__logo{display:flex;width:max-content;background:#fff;border-radius:12px;padding:14px 18px;margin-bottom:24px}
+.tms-story__logo img{height:52px;width:auto}
+.tms-story dl{margin:24px 0 0;display:grid;gap:18px}
+.tms-story dt{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#FFB466;margin-bottom:4px}
+.tms-story dd{margin:0}
+.tms-story__panel{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--tms-radius-lg);padding:26px}
+.tms-story__panel h3{font-size:14px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
+.tms-story__panel .tms-chips span{background:rgba(255,255,255,.1);color:#fff}
+.tms-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.tms-stat{background:rgba(255,255,255,.06);border-radius:12px;padding:16px}
+.tms-stat b{display:block;font-family:var(--tms-font-head);font-size:30px;color:#fff;line-height:1.1}
+.tms-stat span{font-size:13px;color:rgba(255,255,255,.72)}
+.tms-quote-sm{margin:22px 0 0;padding:18px 0 0;border-top:1px solid rgba(255,255,255,.12);font-size:16px;color:#fff}
+.tms-quote-sm cite{display:block;font-style:normal;font-size:13px;color:rgba(255,255,255,.7);margin-top:8px}
+
+/* ---------- Fit check (qualifier) ---------- */
+.tms-fit{display:grid;gap:32px;align-items:start}
+.tms-fit__list{display:grid;gap:10px}
+.tms-fit__opt{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;background:#fff;border:1.5px solid var(--tms-line);border-radius:12px;cursor:pointer;font-weight:500;transition:border-color .15s,background-color .15s}
+.tms-fit__opt:hover{border-color:#B9CBD6}
+.tms-fit__opt input{width:22px;height:22px;margin:2px 0 0;accent-color:var(--tms-navy);flex:none;cursor:pointer}
+.tms-fit__opt:has(input:checked){border-color:var(--tms-navy);background:var(--tms-navy-50)}
+.tms-fit__result{background:#fff;border:1px solid var(--tms-line);border-radius:var(--tms-radius-lg);padding:28px;box-shadow:var(--tms-shadow)}
+.tms-fit__meter{height:8px;border-radius:99px;background:var(--tms-navy-50);overflow:hidden;margin:16px 0 18px}
+.tms-fit__meter i{display:block;height:100%;width:0;background:var(--tms-orange);border-radius:99px;transition:width .3s var(--tms-ease)}
+.tms-fit__result h3{font-size:22px;margin-bottom:8px}
+.tms-fit__result p{color:var(--tms-muted)}
+.tms-fit__count{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--tms-muted)}
+
+/* ---------- Steps ---------- */
+.tms-steps{display:grid;gap:16px;counter-reset:s}
+.tms-step{position:relative;background:#fff;border:1px solid var(--tms-line);border-radius:var(--tms-radius);padding:24px 24px 24px 76px}
+.tms-step::before{counter-increment:s;content:counter(s);position:absolute;left:22px;top:22px;width:38px;height:38px;border-radius:50%;background:var(--tms-navy-900);color:#fff;font-family:var(--tms-font-head);font-weight:700;display:flex;align-items:center;justify-content:center}
+.tms-step h3{margin-bottom:6px}
+.tms-step p{margin:0;color:var(--tms-muted);font-size:16px}
+.tms-step small{display:inline-block;margin-bottom:6px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--tms-orange-text)}
+
+/* ---------- Comparison table ---------- */
+.tms-compare{border:1px solid var(--tms-line);border-radius:var(--tms-radius-lg);overflow:hidden;background:#fff}
+.tms-compare table{width:100%;border-collapse:collapse;font-size:15px}
+.tms-compare th,.tms-compare td{padding:16px 14px;text-align:left;border-bottom:1px solid var(--tms-line);vertical-align:top}
+.tms-compare tr:last-child th,.tms-compare tr:last-child td{border-bottom:0}
+.tms-compare thead th{font-family:var(--tms-font-head);font-size:14px;color:var(--tms-navy-900);background:var(--tms-bg)}
+.tms-compare thead th.is-us{background:var(--tms-navy-900);color:#fff}
+.tms-compare td.is-us{background:var(--tms-navy-50);font-weight:600;color:var(--tms-navy-900)}
+.tms-compare tbody th{font-weight:600;color:var(--tms-ink);width:30%}
+.tms-yes,.tms-no,.tms-mid{display:flex;gap:8px;align-items:flex-start}
+.tms-yes svg,.tms-no svg,.tms-mid svg{width:18px;height:18px;margin-top:2px}
+.tms-yes svg{color:var(--tms-success)}.tms-no svg{color:#B4442E}.tms-mid svg{color:var(--tms-orange-text)}
+.tms-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tms-scroll table{min-width:640px}
+
+/* ---------- Testimonials ---------- */
+.tms-quote{margin:0;background:#fff;border:1px solid var(--tms-line);border-radius:var(--tms-radius-lg);padding:32px;display:flex;flex-direction:column;gap:22px;height:100%}
+.tms-quote svg{width:34px;height:34px;color:var(--tms-orange)}
+.tms-quote blockquote{margin:0;font-size:19px;line-height:1.55;color:var(--tms-ink);font-weight:500}
+.tms-quote cite{display:flex;align-items:center;gap:12px;font-style:normal;font-size:14px;color:var(--tms-muted);margin-top:auto}
+.tms-quote cite b{display:block;color:var(--tms-ink);font-size:15px}
+.tms-quote .tms-avatar{background:var(--tms-navy-50);color:var(--tms-navy)}
+
+/* ---------- FAQ ---------- */
+.tms-faq details{background:#fff;border:1px solid var(--tms-line);border-radius:var(--tms-radius);margin-bottom:10px;transition:border-color .15s}
+.tms-faq details[open]{border-color:#B9CBD6}
+.tms-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 22px;font-weight:700;color:var(--tms-navy-900);min-height:44px}
+.tms-faq summary::-webkit-details-marker{display:none}
+.tms-faq summary::after{content:"";flex:none;width:28px;height:28px;border-radius:50%;background:var(--tms-navy-50) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23215A78' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E") center/14px no-repeat;transition:transform .2s var(--tms-ease)}
+.tms-faq details[open] summary::after{transform:rotate(45deg)}
+.tms-faq details p{padding:0 22px 20px;margin:0;color:var(--tms-muted)}
+
+/* ---------- Final CTA ---------- */
+.tms-cta{background:var(--tms-navy-900);color:rgba(255,255,255,.82);padding:72px 0;position:relative;overflow:hidden}
+.tms-cta::before{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(254,133,3,.22),transparent 65%);pointer-events:none}
+.tms-cta .tms-wrap{position:relative}
+.tms-cta h2{color:#fff}
+.tms-cta__grid{display:grid;gap:36px;align-items:center}
+.tms-cta__list{margin-top:22px}
+.tms-cta__list li{display:flex;gap:10px;align-items:center;margin-bottom:10px;font-weight:500;color:#fff}
+.tms-cta__list svg{width:20px;height:20px;color:#FFB466}
+.tms-mini{background:#fff;border-radius:var(--tms-radius-lg);padding:26px;color:var(--tms-ink);box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.tms-mini h3{margin-bottom:4px}
+.tms-mini > p{color:var(--tms-muted);font-size:15px}
+
+/* ---------- Forms (preview only — build in Avada Form Builder) ---------- */
+.tms-form{display:grid;gap:16px;grid-template-columns:1fr}
+.tms-form label,.tms-form legend{display:block;font-size:14px;font-weight:700;margin-bottom:6px;color:var(--tms-ink);padding:0}
+.tms-form label span{font-weight:500;color:var(--tms-muted)}
+.tms-form input:not([type=radio]):not([type=checkbox]),.tms-form select,.tms-form textarea{width:100%;font:inherit;font-size:16px;min-height:50px;padding:12px 14px;border:1.5px solid #C5D1DA;border-radius:8px;background:#fff;color:var(--tms-ink);transition:border-color .15s}
+.tms-form input:focus,.tms-form select:focus,.tms-form textarea:focus{outline:3px solid rgba(33,90,120,.25);outline-offset:0;border-color:var(--tms-navy)}
+.tms-form .tms-full{grid-column:1/-1}
+.tms-form fieldset{border:0;padding:0;margin:0;min-width:0}
+.tms-form .tms-btn{width:100%}
+.tms-seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tms-seg label,.tms-opts label{display:flex;align-items:center;gap:10px;font-weight:600;padding:12px 14px;border:1.5px solid #C5D1DA;border-radius:8px;cursor:pointer;margin:0;min-height:48px;font-size:15px;transition:border-color .15s,background-color .15s}
+.tms-seg label:has(input:checked),.tms-opts label:has(input:checked){border-color:var(--tms-navy);background:var(--tms-navy-50)}
+.tms-seg input,.tms-opts input{accent-color:var(--tms-navy);width:18px;height:18px;margin:0}
+.tms-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tms-err{display:none;color:#B4442E;font-size:13px;font-weight:600;margin-top:6px}
+.tms-form .is-invalid input,.tms-form .is-invalid select{border-color:#B4442E}
+.tms-form .is-invalid .tms-err{display:block}
+.tms-form-ok{display:none;text-align:center;padding:24px 8px}
+.tms-form-ok svg{width:48px;height:48px;color:var(--tms-success);margin:0 auto 12px}
+.tms-sent .tms-form{display:none}.tms-sent .tms-form-ok{display:block}
+
+/* ---------- Page hero (inner pages) ---------- */
+.tms-phero{padding:44px 0 56px;background:linear-gradient(180deg,#fff,var(--tms-navy-50))}
+.tms-crumbs{font-size:14px;color:var(--tms-muted);margin-bottom:18px}
+.tms-crumbs a{color:var(--tms-muted);text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- Services page ---------- */
+.tms-jump{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--tms-line)}
+.tms-jump ul{display:flex;gap:6px;overflow-x:auto;padding:10px 0;scrollbar-width:none}
+.tms-jump ul::-webkit-scrollbar{display:none}
+.tms-jump a{display:flex;align-items:center;min-height:40px;white-space:nowrap;font-size:14px;font-weight:700;padding:8px 14px;border-radius:999px;color:var(--tms-navy-900);background:var(--tms-navy-50)}
+.tms-jump a:hover{background:var(--tms-navy);color:#fff;text-decoration:none}
+.tms-svc{padding:64px 0;border-bottom:1px solid var(--tms-line);scroll-margin-top:140px}
+.tms-svc:nth-of-type(even){background:var(--tms-bg)}
+.tms-svc__grid{display:grid;gap:32px;align-items:start}
+.tms-svc__head{display:flex;gap:16px;align-items:center;margin-bottom:12px}
+.tms-svc__head .tms-icon{margin:0}
+.tms-svc__head h2{margin:0;font-size:clamp(24px,3vw,32px)}
+.tms-svc h4{font-family:var(--tms-font-head);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--tms-muted);margin:24px 0 14px}
+.tms-svc__side{background:#fff;border:1px solid var(--tms-line);border-radius:var(--tms-radius-lg);padding:26px}
+.tms-svc__side h3{font-size:17px}
+.tms-svc__side ul li{padding:10px 0;border-top:1px solid var(--tms-line);font-size:15px;color:var(--tms-muted)}
+.tms-svc__side ul li:first-child{border-top:0;padding-top:0}
+.tms-svc__side ul b{color:var(--tms-ink);display:block}
+.tms-svc__side .tms-btn{width:100%;margin-top:18px}
+.tms-svc__proof{display:flex;gap:12px;align-items:center;margin-top:24px;padding:14px 16px;border-radius:12px;background:var(--tms-orange-50);font-size:15px}
+.tms-svc__proof svg{width:20px;height:20px;color:var(--tms-orange-text)}
+.tms-plans{display:grid;gap:20px}
+.tms-plan{background:#fff;border:1px solid var(--tms-line);border-radius:var(--tms-radius-lg);padding:30px;display:flex;flex-direction:column}
+.tms-plan--feat{border:2px solid var(--tms-navy);box-shadow:var(--tms-shadow)}
+.tms-plan h3{font-size:22px}
+.tms-plan > p{color:var(--tms-muted)}
+.tms-plan .tms-check{margin:18px 0 24px}
+.tms-plan .tms-btn{margin-top:auto}
+
+/* ---------- About ---------- */
+.tms-partners{height:auto;align-self:center;padding:24px}
+.tms-partners .tms-logos__row{grid-template-columns:repeat(2,1fr);gap:0 16px}
+.tms-partners .tms-logos__row img{max-width:140px}
+.tms a.tms-brandlink{color:var(--tms-orange);font-weight:600}
+.tms a.tms-brandlink:hover{color:var(--tms-orange-600)}
+.tms-person .tms-photo{aspect-ratio:1;margin-bottom:14px;border-radius:16px}
+.tms-person h3{margin-bottom:2px}
+.tms-person p{color:var(--tms-muted);font-size:15px;margin:0}
+
+/* ---------- Contact ---------- */
+.tms-contact{display:grid;gap:28px;align-items:start}
+.tms-form-card{background:#fff;border:1px solid var(--tms-line);border-radius:var(--tms-radius-lg);padding:24px;box-shadow:var(--tms-shadow)}
+.tms-side{display:grid;gap:16px}
+.tms-next{counter-reset:n}
+.tms-next li{counter-increment:n;position:relative;padding-left:42px;margin-bottom:16px;color:var(--tms-muted);font-size:15px}
+.tms-next li::before{content:counter(n);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:var(--tms-navy-50);color:var(--tms-navy);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.tms-next li b{color:var(--tms-ink);display:block}
+.tms-clist li{display:flex;gap:12px;margin-bottom:14px;font-size:15px;align-items:flex-start}
+.tms-clist svg{width:20px;height:20px;color:var(--tms-navy);margin-top:3px}
+
+/* ---------- Footer ---------- */
+.tms-footer{background:#0B2331;color:rgba(255,255,255,.75);padding:64px 0 0;font-size:15px}
+.tms-footer a{color:rgba(255,255,255,.8)}
+.tms-footer a:hover{color:#fff}
+.tms-footer__grid{display:grid;gap:36px;padding-bottom:48px}
+.tms-footer h4{color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:16px}
+.tms-footer li{margin-bottom:10px}
+.tms-footer__brand{font-family:var(--tms-font-head);font-weight:800;color:#fff;font-size:22px;line-height:1.1;margin-bottom:14px}
+.tms-footer__brand small{display:block;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#FFB466;margin-top:6px}
+.tms-footer__bar{border-top:1px solid rgba(255,255,255,.12);padding:22px 0 96px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:14px}
+.tms-footer__bar nav{display:flex;gap:20px}
+
+/* ---------- Mobile sticky CTA ---------- */
+.tms-sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:none;align-items:center;gap:8px;background:var(--tms-navy-900);color:#fff;border-radius:14px;padding:8px;box-shadow:0 12px 32px rgba(0,0,0,.3)}
+.tms-sticky.is-visible{display:flex}
+.tms-sticky .tms-btn{flex:1;min-height:48px;padding:10px 14px;font-size:15px}
+.tms-sticky .tms-call{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:10px;background:rgba(255,255,255,.1);color:#fff;flex:none}
+.tms-sticky .tms-call svg{width:20px;height:20px}
+.tms-sticky button{background:none;border:0;color:rgba(255,255,255,.8);width:44px;height:48px;font-size:22px;cursor:pointer;flex:none;border-radius:10px}
+
+/* =========================================================
+   Breakpoints (mobile first): 640 / 900 / 1100
+   ========================================================= */
+@media (min-width:640px){
+  .tms-wrap{padding:0 28px}
+  .tms-grid--2,.tms-grid--3,.tms-grid--4{grid-template-columns:repeat(2,1fr)}
+  .tms-bento{grid-template-columns:repeat(2,1fr)}
+  .tms-bento__feat{grid-column:1/-1}
+  .tms-logos__row{grid-template-columns:repeat(5,1fr)}
+  .tms-check--2col{grid-template-columns:1fr 1fr}
+  .tms-form{grid-template-columns:1fr 1fr}
+  .tms-form .tms-btn{width:auto}
+  .tms-opts{grid-template-columns:repeat(3,1fr)}
+  .tms-stats{grid-template-columns:repeat(3,1fr)}
+  .tms-footer__grid{grid-template-columns:1fr 1fr}
+  .tms-form-card{padding:36px}
+  .tms-sticky{display:none!important}
+  .tms-footer__bar{padding-bottom:22px}
+}
+@media (min-width:900px){
+  .tms-section{padding:104px 0}
+  .tms-hero{padding:72px 0 96px}
+  .tms-hero__grid{grid-template-columns:1.1fr .9fr;gap:56px}
+  .tms-split{grid-template-columns:1fr 1fr;gap:64px}
+  .tms-split--rev > :first-child{order:2}
+  .tms-grid--3{grid-template-columns:repeat(3,1fr)}
+  .tms-grid--4{grid-template-columns:repeat(4,1fr)}
+  .tms-logos__in{grid-template-columns:auto 1fr;gap:56px}
+  .tms-logos__client{padding-right:56px;border-right:1px solid var(--tms-line)}
+  .tms-bento{grid-template-columns:repeat(3,1fr)}
+  .tms-bento__feat{grid-column:auto;grid-row:span 2}
+  .tms-story{grid-template-columns:1.1fr .9fr;gap:56px}
+  .tms-fit{grid-template-columns:1.2fr .8fr;gap:48px}
+  .tms-fit__result{position:sticky;top:100px}
+  .tms-steps{grid-template-columns:repeat(4,1fr)}
+  .tms-step{padding:76px 24px 26px}
+  .tms-cta__grid{grid-template-columns:1.1fr .9fr;gap:64px}
+  .tms-svc__grid{grid-template-columns:1.3fr .7fr;gap:56px}
+  .tms-plans{grid-template-columns:1fr 1fr}
+  .tms-contact{grid-template-columns:1.5fr 1fr;gap:40px}
+  .tms-footer__grid{grid-template-columns:1.4fr 1fr 1fr 1.2fr}
+}
+@media (min-width:1100px){
+  .tms-logos__row{grid-template-columns:repeat(10,1fr)}
+}
+@media (prefers-reduced-motion:reduce){.tms *,.tms *::before,.tms *::after{transition:none!important;scroll-behavior:auto!important}}
+
+/* =========================================================
+   PREVIEW-ONLY (do not paste into Avada) — Avada provides header/nav
+   ========================================================= */
+html{scroll-behavior:smooth}body{margin:0;background:#fff;color-scheme:light}
+.pv-skip{position:absolute;left:-9999px;top:8px;z-index:100;background:#fff;padding:10px 14px;border-radius:6px;font:600 14px var(--tms-font)}
+.pv-skip:focus{left:8px}
+.pv-banner{background:#14212B;color:#fff;font:600 13px/1.4 var(--tms-font);text-align:center;padding:8px 16px}
+.pv-banner a{color:#FFB466}
+.pv-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--tms-line)}
+.pv-header__in{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.pv-logo{display:flex;flex-direction:column;font-family:var(--tms-font-head);font-weight:800;font-size:22px;color:var(--tms-navy-900)!important;line-height:1}
+.pv-logo:hover{text-decoration:none!important}
+.pv-logo small{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--tms-orange-text);margin-top:5px;font-weight:700}
+.pv-nav{display:none;position:absolute;top:72px;left:0;right:0;background:#fff;flex-direction:column;padding:12px 20px 20px;border-bottom:1px solid var(--tms-line);box-shadow:var(--tms-shadow)}
+.pv-open .pv-nav{display:flex}
+.pv-nav > a:not(.tms-btn){display:flex;align-items:center;min-height:48px;font-weight:600;font-size:16px;color:var(--tms-ink);border-bottom:1px solid var(--tms-line)}
+.pv-nav > a.is-active{color:var(--tms-navy)}
+.pv-nav .tms-btn{margin-top:12px}
+.pv-phone{display:none!important}
+.pv-burger{display:flex;align-items:center;justify-content:center;width:48px;height:48px;background:none;border:1px solid var(--tms-line);border-radius:10px;cursor:pointer;color:var(--tms-navy-900)}
+.pv-burger svg{width:22px;height:22px}
+.tms-jump{top:72px}
+@media (min-width:1000px){
+  .pv-burger{display:none}
+  .pv-nav{display:flex;position:static;flex-direction:row;align-items:center;gap:6px;padding:0;border:0;box-shadow:none;background:none}
+  .pv-nav > a:not(.tms-btn){min-height:44px;padding:0 12px;border:0;font-size:15px;border-radius:8px}
+  .pv-nav > a:not(.tms-btn):hover{background:var(--tms-bg);text-decoration:none}
+  .pv-nav > a.is-active{box-shadow:inset 0 -2px var(--tms-orange);border-radius:0}
+  .pv-nav .tms-btn{margin:0 0 0 6px}
+  .pv-phone{display:flex!important;color:var(--tms-muted)!important;font-weight:500!important}
+}
+.pv-page{display:none}.pv-page.is-active{display:block}
+</style></head>
+<body>
+<a class="pv-skip" href="#main">Skip to content</a>
+<div class="pv-banner">Design preview v2 &middot; Photos, quotes, numbers and [bracketed] items are placeholders &middot; <a href="preview.html">View v1</a></div>
+
+<header class="tms pv-header">
+  <div class="tms-wrap pv-header__in">
+    <a href="#home" class="pv-logo" aria-label="Trimax Management Services home">Trimax<small>Management Services</small></a>
+    <button class="pv-burger" aria-label="Open menu" aria-expanded="false" aria-controls="pvNav" onclick="var o=document.body.classList.toggle('pv-open');this.setAttribute('aria-expanded',o)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="pv-nav" id="pvNav" aria-label="Main">
+      <a href="#services">Services</a><a href="#home/results">Client Story</a><a href="#about">About</a><a href="#contact">Contact</a>
+      <a href="tel:+18448746297" class="pv-phone">+1 844.874.6297</a>
+      <a class="tms-btn tms-btn--outline tms-btn--sm" href="#contact/form">Request a Proposal</a>
+      <a class="tms-btn tms-btn--primary tms-btn--sm" href="#contact/form">Free Consultation</a>
+    </nav>
+  </div>
+</header>
+
+<div id="main">
+<!-- =====================================================================
+     HOME
+     ===================================================================== -->
+<main class="pv-page" id="page-home">
+
+<!-- HOME · Hero -->
+<section class="tms tms-hero">
+  <div class="tms-wrap tms-hero__grid">
+    <div>
+      <h1>Give your volunteers their <em>time back.</em></h1>
+      <p class="tms-lead">We run the day-to-day operations of chapters and professional associations (events, membership, finances, website and technology) with one dedicated team that knows you by name.</p>
+      <div class="tms-btns">
+        <a class="tms-btn tms-btn--primary" href="#contact/form">Schedule a Free Consultation<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="tms-btn tms-btn--outline" href="#services">Explore Services</a>
+      </div>
+      <p class="tms-note">Free 30-minute call &middot; No obligation &middot; Reply within one business day</p>
+    </div>
+
+    <div class="tms-board" aria-label="Illustration: a month of chapter operations handled by Trimax">
+      <div class="tms-board__card">
+        <div class="tms-board__top"><h3>This month at your chapter</h3><span>Handled by <b class="tms-board__brand">Trimax</b></span></div>
+        <div class="tms-board__row"><span class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><div><b>Chapter meeting</b><small>Venue, registration, speakers</small></div><span class="tms-status tms-status--done">Ready</span></div>
+        <div class="tms-board__row"><span class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div><b>Membership renewals</b><small>Reminders and follow-ups</small></div><span class="tms-status tms-status--done">Sent</span></div>
+        <div class="tms-board__row"><span class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 16v-5M12 16V8M17 16v-8"/></svg></span><div><b>Monthly financials</b><small>Reconciled, ready for the board</small></div><span class="tms-status tms-status--done">Ready</span></div>
+        <div class="tms-board__row"><span class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></span><div><b>Website &amp; security updates</b><small>Backups, patches, content</small></div><span class="tms-status tms-status--done">Done</span></div>
+      </div>
+      <div class="tms-board__am"><span class="tms-avatar" aria-hidden="true">AM</span><span><b>Your account manager</b><small>One named contact. Replies within 1 business day.</small></span></div>
+      <span class="tms-board__cap">Illustrative example</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOME · Logo band (client + platform partners) -->
+<section class="tms tms-logos" aria-label="Clients and partners">
+  <div class="tms-wrap tms-logos__in">
+    <div class="tms-logos__client">
+      <p class="tms-logos__label">Trusted by</p>
+      <img src="logos/clients/pmi_minnesota_chapter_horizontal_logo_full_color_rgb_882px_w_72ppi.png" alt="PMI Minnesota Chapter" width="155" height="56" loading="lazy">
+    </div>
+    <!-- Partner logo slider — Avada: paste this whole block (style + markup) into one Code Block.
+         Replace logos/partners/... with your Media Library URLs. -->
+    <div class="tms-marquee-wrap">
+      <style>
+      .tms-marquee-wrap{min-width:0}
+      .tms-marquee{min-width:0}
+      .tms-marquee__viewport{flex:1;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+      .tms-marquee__track{display:flex;width:max-content;animation:tms-marquee 45s linear infinite}
+      .tms-marquee__set{display:flex;align-items:center;gap:40px;padding:0 40px 0 0!important;margin:0!important;list-style:none!important}
+      .tms-marquee__set li{margin:0!important;padding:0!important;list-style:none!important}
+      .tms-marquee__set li::before{display:none!important}
+      .tms .tms-marquee__set img{height:56px;width:auto;max-width:none;opacity:.7;filter:grayscale(1);transition:opacity .2s,filter .2s}
+      .tms .tms-marquee__set img:hover{opacity:1;filter:none}
+      .tms-marquee__viewport:hover .tms-marquee__track,.tms-marquee:focus-within .tms-marquee__track{animation-play-state:paused}
+      @keyframes tms-marquee{to{transform:translateX(-50%)}}
+      @media (prefers-reduced-motion:reduce){
+        .tms-marquee__track{animation:none;width:auto}
+        .tms-marquee__viewport{-webkit-mask-image:none;mask-image:none}
+        .tms-marquee__set{flex-wrap:wrap;justify-content:center;gap:8px 28px;padding:0!important}
+        .tms-marquee__set[aria-hidden]{display:none}
+      }
+      </style>
+      <p class="tms-logos__label">Technology partners behind your operations</p>
+      <div class="tms-marquee">
+        <div class="tms-marquee__viewport">
+          <div class="tms-marquee__track">
+            <ul class="tms-marquee__set" aria-label="Technology partners">
+            <li><img src="logos/partners/bill-logo.png" alt="BILL" width="208" height="104"></li>
+            <li><img src="logos/partners/ramp-logo.png" alt="Ramp" width="208" height="104"></li>
+            <li><img src="logos/partners/avalara_logo.png" alt="Avalara" width="208" height="104"></li>
+            <li><img src="logos/partners/payfabric_logo.png" alt="PayFabric" width="208" height="104"></li>
+            <li><img src="logos/partners/cloudflare_logo.png" alt="Cloudflare" width="208" height="104"></li>
+            <li><img src="logos/partners/preveil-logo.png" alt="PreVeil" width="208" height="104"></li>
+            <li><img src="logos/partners/ringcentral-logo.png" alt="RingCentral" width="208" height="104"></li>
+            <li><img src="logos/partners/justcall-logo.png" alt="JustCall" width="208" height="104"></li>
+            <li><img src="logos/partners/cloudiway-logo.png" alt="Cloudiway" width="208" height="104"></li>
+            <li><img src="logos/partners/insightworks-logo.png" alt="Insight Works" width="208" height="104"></li>
+            </ul>
+            <ul class="tms-marquee__set" aria-hidden="true">
+            <li><img src="logos/partners/bill-logo.png" alt="" width="208" height="104"></li>
+            <li><img src="logos/partners/ramp-logo.png" alt="" width="208" height="104"></li>
+            <li><img src="logos/partners/avalara_logo.png" alt="" width="208" height="104"></li>
+            <li><img src="logos/partners/payfabric_logo.png" alt="" width="208" height="104"></li>
+            <li><img src="logos/partners/cloudflare_logo.png" alt="" width="208" height="104"></li>
+            <li><img src="logos/partners/preveil-logo.png" alt="" width="208" height="104"></li>
+            <li><img src="logos/partners/ringcentral-logo.png" alt="" width="208" height="104"></li>
+            <li><img src="logos/partners/justcall-logo.png" alt="" width="208" height="104"></li>
+            <li><img src="logos/partners/cloudiway-logo.png" alt="" width="208" height="104"></li>
+            <li><img src="logos/partners/insightworks-logo.png" alt="" width="208" height="104"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOME · Problem → outcome -->
+<section class="tms tms-section">
+  <div class="tms-wrap">
+    <div class="tms-head tms-center tms-narrow">
+      <span class="tms-eyebrow">Sound familiar?</span>
+      <h2>Running a chapter shouldn't feel like a second job.</h2>
+      <p class="tms-lead">Volunteer leaders join to advance their profession, not to chase invoices, rebuild registration forms or start over every time the board changes.</p>
+    </div>
+    <div class="tms-grid tms-grid--3">
+      <div class="tms-card tms-pain">
+        <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Volunteer burnout</h3>
+        <p>Your most committed leaders spend evenings on admin instead of members.</p>
+        <div class="tms-pain__out">Volunteers lead programs. We run the operations.</div>
+      </div>
+      <div class="tms-card tms-pain">
+        <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5M3 21v-5h5"/></svg></div>
+        <h3>Lost continuity</h3>
+        <p>Knowledge walks out the door with every board transition.</p>
+        <div class="tms-pain__out">Documented processes that outlast every board.</div>
+      </div>
+      <div class="tms-card tms-pain">
+        <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 10 5-10 5L2 7l10-5Z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h3>Disconnected tools</h3>
+        <p>Membership, events, email and finances live in systems nobody fully owns.</p>
+        <div class="tms-pain__out">One team owns your systems, with in-house IT.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOME · Services (bento) -->
+<section class="tms tms-section tms-section--bg">
+  <div class="tms-wrap">
+    <div class="tms-head tms-narrow">
+      <span class="tms-eyebrow">What we do</span>
+      <h2>Full-service management, or just the help you need.</h2>
+      <p class="tms-lead">Hand us your full operations, or start with the areas that take the most volunteer time.</p>
+    </div>
+    <div class="tms-bento">
+      <a class="tms-card tms-card--link tms-bento__feat" href="#services/full-service">
+        <span class="tms-tag">Most chosen</span>
+        <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg></div>
+        <h3>Full-Service Association Management</h3>
+        <p>Your complete operations team, coordinated by one account manager who reports to your board.</p>
+        <ul class="tms-check">
+          <li>One point of contact for everything</li>
+          <li>Continuity through board transitions</li>
+          <li>Predictable monthly cost</li>
+        </ul>
+        <span class="tms-link">See what's included <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="tms-card tms-card--link" href="#services/events">
+        <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+        <h3>Events &amp; Conferences</h3>
+        <p>Chapter meetings to multi-day conferences: venues, registration, sponsors and on-site logistics.</p>
+        <span class="tms-link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="tms-card tms-card--link" href="#services/membership">
+        <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Membership &amp; Communications</h3>
+        <p>Recruitment, renewals, newsletters and member care, handled consistently all year.</p>
+        <span class="tms-link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="tms-card tms-card--link" href="#services/finance">
+        <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 16v-5M12 16V8M17 16v-8"/></svg></div>
+        <h3>Finance, Admin &amp; Vendors</h3>
+        <p>Bookkeeping, board-ready reports, vendor contracts and the admin that keeps things moving.</p>
+        <span class="tms-link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="tms-card tms-card--link" href="#services/website">
+        <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3>Website &amp; Technology</h3>
+        <p>A secure, current website and member platform, backed by Trimax's IT and security team.</p>
+        <span class="tms-link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HOME · Client story -->
+<section class="tms tms-section tms-section--dark" id="results">
+  <div class="tms-wrap tms-story">
+    <div>
+      <span class="tms-eyebrow">Client story</span>
+      <div class="tms-story__logo"><img src="logos/clients/pmi_minnesota_chapter_horizontal_logo_full_color_rgb_882px_w_72ppi.png" alt="PMI Minnesota Chapter" width="144" height="52" loading="lazy"></div>
+      <h2>How PMI Minnesota Chapter freed its volunteer leaders to focus on members.</h2>
+      <dl>
+        <div><dt>The challenge</dt><dd>A growing, volunteer-led chapter carrying a full event calendar, a large membership, and the finances, website and board work that come with it.</dd></div>
+        <div><dt>Our role</dt><dd>Trimax serves as the chapter's operations team, with a dedicated point of contact for events, website, membership, finance and technology.</dd></div>
+      </dl>
+      <div class="tms-btns">
+        <a class="tms-btn tms-btn--primary" href="#contact/form">Get Similar Support</a>
+      </div>
+    </div>
+    <div class="tms-story__panel">
+      <h3>What we manage for PMI Minnesota</h3>
+      <div class="tms-chips">
+        <span>Events</span><span>Website</span><span>Membership</span><span>Finance &amp; Accounting</span><span>Technology</span>
+      </div>
+      <!-- TODO: replace with 3 approved metrics -->
+      <div class="tms-stats tms-todo">
+        <div class="tms-stat"><b>[##]</b><span>events per year</span></div>
+        <div class="tms-stat"><b>[#,###]</b><span>members supported</span></div>
+        <div class="tms-stat"><b>[##]%</b><span>renewal rate</span></div>
+      </div>
+      <!-- TODO: approved quote from a chapter leader -->
+      <blockquote class="tms-quote-sm tms-todo">"[Short approved quote from a PMI Minnesota board member about what changed for volunteers.]"<cite>[Name], [Title], PMI Minnesota Chapter</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- HOME · Fit check (low-commitment qualifier) — Avada: Code Block -->
+<section class="tms tms-section" id="fit">
+  <div class="tms-wrap tms-fit">
+    <div>
+      <span class="tms-eyebrow">Quick check</span>
+      <h2>Is a management partner right for you?</h2>
+      <p class="tms-lead" style="margin-bottom:28px">Check what sounds like your organization. It takes 20 seconds.</p>
+      <div class="tms-fit__list" id="fitList">
+        <label class="tms-fit__opt"><input type="checkbox"> Our board spends more time on logistics than strategy.</label>
+        <label class="tms-fit__opt"><input type="checkbox"> We lose knowledge every time officers change.</label>
+        <label class="tms-fit__opt"><input type="checkbox"> Events depend on one or two overworked volunteers.</label>
+        <label class="tms-fit__opt"><input type="checkbox"> Our books or reports are often behind.</label>
+        <label class="tms-fit__opt"><input type="checkbox"> Our website or member platform needs attention.</label>
+        <label class="tms-fit__opt"><input type="checkbox"> We'd rather not hire and manage staff ourselves.</label>
+      </div>
+    </div>
+    <div class="tms-fit__result" aria-live="polite">
+      <span class="tms-fit__count" id="fitCount">0 of 6 checked</span>
+      <div class="tms-fit__meter"><i id="fitBar"></i></div>
+      <h3 id="fitTitle">Start checking to see your fit.</h3>
+      <p id="fitText">Most organizations we talk to check two or more.</p>
+      <a class="tms-btn tms-btn--primary" href="#contact/form" style="width:100%">Talk Through Your Results</a>
+      <p class="tms-note" style="text-align:center">Free 30-minute call. No obligation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOME · How it works -->
+<section class="tms tms-section tms-section--bg">
+  <div class="tms-wrap">
+    <div class="tms-head tms-center tms-narrow">
+      <span class="tms-eyebrow">How it works</span>
+      <h2>A clear path from first call to fully supported.</h2>
+    </div>
+    <div class="tms-steps">
+      <div class="tms-step"><small>Free &middot; 30 min</small><h3>Discovery call</h3><p>We learn about your organization, goals and pain points.</p></div>
+      <div class="tms-step"><small>Assessment</small><h3>Operational review</h3><p>We review your tools, processes and calendar to see where we help most.</p></div>
+      <div class="tms-step"><small>Proposal</small><h3>Clear scope &amp; price</h3><p>Full-service or specific areas, with a fixed monthly scope. No surprises.</p></div>
+      <div class="tms-step"><small>Ongoing</small><h3>Onboarding &amp; support</h3><p>A structured handover, then a dedicated team and regular board reporting.</p></div>
+    </div>
+    <div class="tms-btns tms-btns--center" style="margin-top:40px">
+      <a class="tms-btn tms-btn--primary" href="#contact/form">Book Your Discovery Call</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOME · Comparison -->
+<section class="tms tms-section">
+  <div class="tms-wrap">
+    <div class="tms-head tms-center tms-narrow">
+      <span class="tms-eyebrow">Why Trimax</span>
+      <h2>A dedicated team, without the overhead of hiring one.</h2>
+    </div>
+    <div class="tms-compare tms-scroll" role="region" aria-label="Comparison table" tabindex="0">
+      <table>
+        <thead><tr><th scope="col"><span class="sr-only" style="position:absolute;left:-9999px">Criteria</span></th><th scope="col">Volunteers only</th><th scope="col">Hiring staff</th><th scope="col" class="is-us">Trimax Management Services</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Continuity through board changes</th>
+            <td><span class="tms-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>Resets yearly</span></td>
+            <td><span class="tms-mid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>Until staff leave</span></td>
+            <td class="is-us"><span class="tms-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Documented and team-backed</span></td></tr>
+          <tr><th scope="row">Predictable cost</th>
+            <td><span class="tms-mid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>Hidden cost: volunteer time</span></td>
+            <td><span class="tms-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>Salary, benefits, turnover</span></td>
+            <td class="is-us"><span class="tms-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Fixed monthly scope</span></td></tr>
+          <tr><th scope="row">Events, finance, web &amp; board skills</th>
+            <td><span class="tms-mid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>Depends who volunteers</span></td>
+            <td><span class="tms-mid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>One or two people</span></td>
+            <td class="is-us"><span class="tms-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A full team of specialists</span></td></tr>
+          <tr><th scope="row">Technology &amp; data security</th>
+            <td><span class="tms-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>Often unmanaged</span></td>
+            <td><span class="tms-mid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>Usually outsourced</span></td>
+            <td class="is-us"><span class="tms-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>In-house IT &amp; security team</span></td></tr>
+          <tr><th scope="row">Volunteer time freed</th>
+            <td><span class="tms-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>None</span></td>
+            <td><span class="tms-mid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>Board still manages staff</span></td>
+            <td class="is-us"><span class="tms-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Board focuses on strategy</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- HOME · Testimonials -->
+<section class="tms tms-section tms-section--tint">
+  <div class="tms-wrap">
+    <div class="tms-head tms-center tms-narrow">
+      <span class="tms-eyebrow">In their words</span>
+      <h2>What association leaders say.</h2>
+    </div>
+    <div class="tms-grid tms-grid--2">
+      <figure class="tms-quote tms-todo">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 6C6.5 6 4 8.5 4 11.5V18h6v-6H7c0-1.7 1.3-3 3-3V6h-.5Zm9 0C15.5 6 13 8.5 13 11.5V18h6v-6h-3c0-1.7 1.3-3 3-3V6h-.5Z"/></svg>
+        <blockquote>[Approved quote from a PMI Minnesota Chapter board member: what changed for volunteers after Trimax took over operations.]</blockquote>
+        <cite><span class="tms-avatar" aria-hidden="true">[ ]</span><span><b>[Name]</b>[Title], PMI Minnesota Chapter</span></cite>
+      </figure>
+      <figure class="tms-quote tms-todo">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 6C6.5 6 4 8.5 4 11.5V18h6v-6H7c0-1.7 1.3-3 3-3V6h-.5Zm9 0C15.5 6 13 8.5 13 11.5V18h6v-6h-3c0-1.7 1.3-3 3-3V6h-.5Z"/></svg>
+        <blockquote>[Approved quote from the chapter treasurer or another leader: responsiveness, reporting or event results.]</blockquote>
+        <cite><span class="tms-avatar" aria-hidden="true">[ ]</span><span><b>[Name]</b>[Title], [Organization]</span></cite>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- HOME · FAQ -->
+<section class="tms tms-section">
+  <div class="tms-wrap tms-narrow">
+    <div class="tms-head tms-center">
+      <span class="tms-eyebrow">FAQ</span>
+      <h2>Questions association boards ask us.</h2>
+    </div>
+    <div class="tms-faq">
+      <details><summary>What is an association management company?</summary><p>An association management company (AMC) provides the staff, systems and expertise to run a member organization's daily operations, so the volunteer board can focus on direction and members instead of logistics.</p></details>
+      <details><summary>How much does association management cost?</summary><p>Pricing depends on your size, event calendar and which services you need. After a short discovery call, we send a clear proposal with a fixed monthly scope so your board can budget with confidence.</p></details>
+      <details><summary>Can we start with just one service?</summary><p>Yes. Many organizations start with events, finances or the website and add more over time. You choose the scope.</p></details>
+      <details><summary>How does onboarding work?</summary><p>We document your current processes, take over systems and accounts in a planned order, and meet with your board regularly during the transition so nothing is dropped.</p></details>
+      <details><summary>Who will we work with day to day?</summary><p>A named account manager who knows your organization, supported by specialists in events, finance and technology.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- HOME · Final CTA with mini form (Avada: Form Builder in right column) -->
+<section class="tms tms-cta">
+  <div class="tms-wrap tms-cta__grid">
+    <div>
+      <span class="tms-eyebrow" style="color:#FFB466">Let's talk</span>
+      <h2>See what a dedicated team could do for your organization.</h2>
+      <p>Book a free 30-minute consultation. We listen first, then show you where we can help.</p>
+      <ul class="tms-cta__list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Reply within one business day</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Or call us: <a href="tel:+18448746297" style="color:#fff;text-decoration:underline">+1 844.874.6297</a></li>
+      </ul>
+    </div>
+    <div class="tms-mini">
+      <h3>Book a free consultation</h3>
+      <form class="tms-form tms-js-form" novalidate>
+        <div class="tms-full"><label for="m-name">Full name</label><input id="m-name" required autocomplete="name"><span class="tms-err">Please enter your name.</span></div>
+        <div class="tms-full"><label for="m-email">Work email</label><input id="m-email" type="email" required autocomplete="email"><span class="tms-err">Please enter a valid email.</span></div>
+        <div class="tms-full"><label for="m-org">Organization</label><input id="m-org" required autocomplete="organization"><span class="tms-err">Please enter your organization.</span></div>
+        <div class="tms-full"><button class="tms-btn tms-btn--primary" type="submit" style="width:100%">Book My Consultation</button></div>
+      </form>
+      <div class="tms-form-ok" role="status"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg><h3>Thanks, we'll be in touch.</h3><p class="tms-note">Preview only, nothing was sent.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- =====================================================================
+     SERVICES
+     ===================================================================== -->
+<main class="pv-page" id="page-services">
+<section class="tms tms-phero">
+  <div class="tms-wrap">
+    <p class="tms-crumbs"><a href="#home">Home</a> / Services</p>
+    <span class="tms-eyebrow">Services</span>
+    <h1>One dedicated team for every part of your operations.</h1>
+    <p class="tms-lead">Five service areas, one dedicated team. Choose full-service management or pick the areas that take the most volunteer time.</p>
+    <div class="tms-btns">
+      <a class="tms-btn tms-btn--primary" href="#contact/form">Schedule a Free Consultation</a>
+      <a class="tms-btn tms-btn--outline" href="#services/compare">Full-service vs. à la carte</a>
+    </div>
+  </div>
+</section>
+
+<nav class="tms tms-jump" aria-label="Services on this page">
+  <div class="tms-wrap">
+    <ul>
+      <li><a href="#services/full-service">Full-Service</a></li>
+      <li><a href="#services/events">Events &amp; Conferences</a></li>
+      <li><a href="#services/membership">Membership &amp; Comms</a></li>
+      <li><a href="#services/finance">Finance, Admin &amp; Vendors</a></li>
+      <li><a href="#services/website">Website &amp; Technology</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="tms tms-svc" id="full-service">
+  <div class="tms-wrap tms-svc__grid">
+    <div>
+      <div class="tms-svc__head"><div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg></div><h2>Full-Service Association Management</h2></div>
+      <p class="tms-lead">Your association's operations team, without the overhead of hiring one.</p>
+      <h4>What's included</h4>
+      <ul class="tms-check tms-check--2col">
+        <li>Every service area, fully managed</li><li>One named account manager</li>
+        <li>Continuity through board transitions</li><li>Predictable monthly cost</li>
+        <li>Monthly board reporting</li><li>In-house IT &amp; security</li>
+      </ul>
+      <div class="tms-svc__proof"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 17l-6.5 4 2-7.5L2 9h7z"/></svg><span>This is how we support <b>PMI Minnesota Chapter</b> today.</span></div>
+    </div>
+    <aside class="tms-svc__side">
+      <h3>Ideal if you…</h3>
+      <ul>
+        <li><b>Are volunteer-run</b>with no or very few staff</li>
+        <li><b>Run a busy calendar</b>of events and programs</li>
+        <li><b>Want one partner</b>accountable for everything</li>
+      </ul>
+      <a class="tms-btn tms-btn--primary" href="#contact/form">Get a Full-Service Proposal</a>
+    </aside>
+  </div>
+</section>
+
+<section class="tms tms-svc" id="events">
+  <div class="tms-wrap tms-svc__grid">
+    <div>
+      <div class="tms-svc__head"><div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><h2>Event &amp; Conference Management</h2></div>
+      <p class="tms-lead">Events your members remember, without the volunteer burnout.</p>
+      <h4>What's included</h4>
+      <ul class="tms-check tms-check--2col">
+        <li>Venue sourcing &amp; negotiation</li><li>Registration &amp; payments</li>
+        <li>Speaker &amp; sponsor coordination</li><li>Attendee communication</li>
+        <li>On-site &amp; virtual logistics</li><li>PDU / CEU tracking</li>
+        <li>Post-event reporting</li><li>Vendor management</li>
+      </ul>
+    </div>
+    <aside class="tms-svc__side">
+      <h3>Ideal if you…</h3>
+      <ul>
+        <li><b>Host monthly meetings</b>or professional development days</li>
+        <li><b>Run an annual conference</b>in person, virtual or hybrid</li>
+      </ul>
+      <a class="tms-btn tms-btn--primary" href="#contact/form">Talk About Your Events</a>
+    </aside>
+  </div>
+</section>
+
+<section class="tms tms-svc" id="membership">
+  <div class="tms-wrap tms-svc__grid">
+    <div>
+      <div class="tms-svc__head"><div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h2>Membership &amp; Communications</h2></div>
+      <p class="tms-lead">Grow membership and keep the members you have.</p>
+      <h4>What's included</h4>
+      <ul class="tms-check tms-check--2col">
+        <li>Renewal reminders &amp; workflows</li><li>Member database upkeep</li>
+        <li>New member onboarding</li><li>Member support desk</li>
+        <li>Newsletters &amp; email campaigns</li><li>Social media posts</li>
+        <li>Retention &amp; engagement reports</li>
+      </ul>
+    </div>
+    <aside class="tms-svc__side">
+      <h3>Ideal if you…</h3>
+      <ul>
+        <li><b>See renewals slipping</b>or follow-ups falling through</li>
+        <li><b>Send communications irregularly</b>because nobody owns them</li>
+      </ul>
+      <a class="tms-btn tms-btn--primary" href="#contact/form">Talk About Membership</a>
+    </aside>
+  </div>
+</section>
+
+<section class="tms tms-svc" id="finance">
+  <div class="tms-wrap tms-svc__grid">
+    <div>
+      <div class="tms-svc__head"><div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 16v-5M12 16V8M17 16v-8"/></svg></div><h2>Finance, Admin &amp; Vendors</h2></div>
+      <p class="tms-lead">Clean books, clear reports, confident treasurers.</p>
+      <h4>What's included</h4>
+      <ul class="tms-check tms-check--2col">
+        <li>Bookkeeping &amp; reconciliation</li><li>Invoicing &amp; payments</li>
+        <li>Monthly board financials</li><li>Budget &amp; audit support</li>
+        <li>Vendor contracts &amp; renewals</li><li>Inbox, records &amp; admin</li>
+      </ul>
+    </div>
+    <aside class="tms-svc__side">
+      <h3>Ideal if you…</h3>
+      <ul>
+        <li><b>Have a volunteer treasurer</b>carrying the books alone</li>
+        <li><b>Need board-ready reports</b>every month, on time</li>
+      </ul>
+      <a class="tms-btn tms-btn--primary" href="#contact/form">Request a Proposal</a>
+    </aside>
+  </div>
+</section>
+
+<section class="tms tms-svc" id="website">
+  <div class="tms-wrap tms-svc__grid">
+    <div>
+      <div class="tms-svc__head"><div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h2>Website &amp; Technology</h2></div>
+      <p class="tms-lead">A website and tech stack that work as hard as your volunteers.</p>
+      <h4>What's included</h4>
+      <ul class="tms-check tms-check--2col">
+        <li>Website updates &amp; hosting</li><li>Security &amp; backups</li>
+        <li>Member platform setup</li><li>Microsoft 365 &amp; accounts</li>
+        <li>Technology help desk</li><li>Monthly analytics</li>
+      </ul>
+      <div class="tms-svc__proof"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg><span>Backed by <b>Trimax's in-house IT, cloud and security team</b>.</span></div>
+    </div>
+    <aside class="tms-svc__side">
+      <h3>Ideal if you…</h3>
+      <ul>
+        <li><b>Have an outdated site</b>that only one volunteer can edit</li>
+        <li><b>Worry about member data</b>and account security</li>
+      </ul>
+      <a class="tms-btn tms-btn--primary" href="#contact/form">Talk to Our Team</a>
+    </aside>
+  </div>
+</section>
+
+<section class="tms tms-section tms-section--tint" id="compare">
+  <div class="tms-wrap">
+    <div class="tms-head tms-center tms-narrow">
+      <span class="tms-eyebrow">Ways to work with us</span>
+      <h2>Full-service or à la carte. You choose.</h2>
+    </div>
+    <div class="tms-plans">
+      <div class="tms-plan tms-plan--feat">
+        <span class="tms-tag">Most chosen</span>
+        <h3>Full-Service</h3>
+        <p>We become your operations team across every service area.</p>
+        <ul class="tms-check"><li>One account manager for everything</li><li>Monthly board reporting</li><li>Fixed monthly scope</li></ul>
+        <a class="tms-btn tms-btn--primary" href="#contact/form">Get a Full-Service Proposal</a>
+      </div>
+      <div class="tms-plan">
+        <h3>À la carte</h3>
+        <p>Start with one or two areas and add more as you grow.</p>
+        <ul class="tms-check"><li>Pick only what you need</li><li>Same dedicated contact</li><li>Easy to expand later</li></ul>
+        <a class="tms-btn tms-btn--outline" href="#contact/form">Build Your Scope</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- =====================================================================
+     ABOUT
+     ===================================================================== -->
+<main class="pv-page" id="page-about">
+<section class="tms tms-phero">
+  <div class="tms-wrap tms-split">
+    <div>
+      <p class="tms-crumbs"><a href="#home">Home</a> / About</p>
+      <span class="tms-eyebrow">About us</span>
+      <h1>The team behind the teams that move professions forward.</h1>
+      <p class="tms-lead">We give chapters and associations a dedicated operations team, so volunteer leaders can focus on members, programs and mission.</p>
+    </div>
+    <div class="tms-photo" data-label="Photo: your real team at a client event"></div>
+  </div>
+</section>
+
+<section class="tms tms-section">
+  <div class="tms-wrap tms-split" style="align-items:start">
+    <div>
+      <span class="tms-eyebrow">Our story</span>
+      <h2>Built from technology, focused on people.</h2>
+    </div>
+    <div>
+      <p>Trimax Management Services is part of <a class="tms-brandlink" href="https://trimaxsecure.com/" target="_blank" rel="noopener">TrimaxSecure</a>, a technology company with teams in the United States, Australia, the Philippines and Turkey. Our work with associations grew from helping organizations run their systems, and then their operations.</p>
+      <p>Today we partner with PMI Minnesota Chapter as its operations team, managing events, website, membership, finance and technology.</p>
+      <p>We stay deliberately focused. Every client works with a named team that knows their organization, and our response commitments are in writing.</p>
+    </div>
+  </div>
+</section>
+
+<section class="tms tms-section tms-section--bg">
+  <div class="tms-wrap">
+    <div class="tms-head tms-center tms-narrow">
+      <span class="tms-eyebrow">How we work</span>
+      <h2>What you can expect from us.</h2>
+    </div>
+    <div class="tms-grid tms-grid--4">
+      <div class="tms-card"><div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h3>Dedicated</h3><p>A named account manager, not a ticket queue.</p></div>
+      <div class="tms-card"><div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h3>Accountable</h3><p>Response times and service levels in writing.</p></div>
+      <div class="tms-card"><div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Transparent</h3><p>Clear scope, clear pricing and regular reporting to your board.</p></div>
+      <div class="tms-card"><div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div><h3>Mission-first</h3><p>We measure success by the time your volunteers get back.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="tms tms-section">
+  <div class="tms-wrap">
+    <div class="tms-head tms-center tms-narrow">
+      <span class="tms-eyebrow">Our team</span>
+      <h2>The people you'll work with.</h2>
+    </div>
+    <div class="tms-grid tms-grid--4">
+      <div class="tms-person"><div class="tms-photo" data-label="Headshot"></div><h3>[Name]</h3><p>Account Manager</p></div>
+      <div class="tms-person"><div class="tms-photo" data-label="Headshot"></div><h3>[Name]</h3><p>Events</p></div>
+      <div class="tms-person"><div class="tms-photo" data-label="Headshot"></div><h3>[Name]</h3><p>Finance &amp; Admin</p></div>
+      <div class="tms-person"><div class="tms-photo" data-label="Headshot"></div><h3>[Name]</h3><p>Digital &amp; Technology</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="tms tms-section tms-section--tint">
+  <div class="tms-wrap tms-split tms-split--rev">
+    <div>
+      <span class="tms-eyebrow">Backed by Trimax</span>
+      <h2>Your data and systems are in expert hands.</h2>
+      <p>Many association management companies outsource technology. We have it in-house: Trimax's cloud, IT and security specialists support your website, member data and accounts.</p>
+      <ul class="tms-check" style="margin-top:20px">
+        <li>Secure hosting, backups and access management</li>
+        <li>Microsoft 365 and platform expertise</li>
+        <li>Established technology partners (below)</li>
+      </ul>
+      <p style="margin-top:20px"><a class="tms-link" href="https://trimaxsecure.com/" target="_blank" rel="noopener">Visit trimaxsecure.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+    </div>
+    <div class="tms-card tms-partners">
+      <p class="tms-logos__label">Technology partners</p>
+      <div class="tms-logos__row">
+        <img src="logos/partners/bill-logo.png" alt="BILL" width="208" height="104" loading="lazy">
+        <img src="logos/partners/ramp-logo.png" alt="Ramp" width="208" height="104" loading="lazy">
+        <img src="logos/partners/avalara_logo.png" alt="Avalara" width="208" height="104" loading="lazy">
+        <img src="logos/partners/payfabric_logo.png" alt="PayFabric" width="208" height="104" loading="lazy">
+        <img src="logos/partners/cloudflare_logo.png" alt="Cloudflare" width="208" height="104" loading="lazy">
+        <img src="logos/partners/preveil-logo.png" alt="PreVeil" width="208" height="104" loading="lazy">
+        <img src="logos/partners/ringcentral-logo.png" alt="RingCentral" width="208" height="104" loading="lazy">
+        <img src="logos/partners/justcall-logo.png" alt="JustCall" width="208" height="104" loading="lazy">
+        <img src="logos/partners/cloudiway-logo.png" alt="Cloudiway" width="208" height="104" loading="lazy">
+        <img src="logos/partners/insightworks-logo.png" alt="Insight Works" width="208" height="104" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tms tms-cta">
+  <div class="tms-wrap tms-center tms-narrow" style="text-align:center">
+    <h2>Let's talk about your organization.</h2>
+    <p>A free 30-minute conversation, no obligation.</p>
+    <div class="tms-btns tms-btns--center">
+      <a class="tms-btn tms-btn--primary" href="#contact/form">Schedule a Free Consultation</a>
+      <a class="tms-btn tms-btn--ghost" href="tel:+18448746297">Call +1 844.874.6297</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- =====================================================================
+     CONTACT
+     ===================================================================== -->
+<main class="pv-page" id="page-contact">
+<section class="tms tms-phero">
+  <div class="tms-wrap tms-narrow">
+    <p class="tms-crumbs"><a href="#home">Home</a> / Contact</p>
+    <span class="tms-eyebrow">Contact</span>
+    <h1>Let's talk about your organization.</h1>
+    <p class="tms-lead">Tell us a little about your association and what you need. We reply within one business day.</p>
+  </div>
+</section>
+
+<section class="tms tms-section" id="form" style="padding-top:48px">
+  <div class="tms-wrap tms-contact">
+
+    <!-- Preview form — in Avada, rebuild with Form Builder using these fields -->
+    <div class="tms-form-card">
+      <h2 style="font-size:26px;margin-bottom:6px">Schedule a consultation or request a proposal</h2>
+      <p style="color:var(--tms-muted)">Takes about one minute. Fields marked optional can be skipped.</p>
+      <form class="tms-form tms-js-form" novalidate>
+        <fieldset class="tms-full">
+          <legend>I'd like to</legend>
+          <div class="tms-seg">
+            <label><input type="radio" name="intent" checked> Schedule a consultation</label>
+            <label><input type="radio" name="intent"> Request a proposal</label>
+          </div>
+        </fieldset>
+        <div><label for="f-name">Full name</label><input id="f-name" required autocomplete="name"><span class="tms-err">Please enter your name.</span></div>
+        <div><label for="f-email">Work email</label><input id="f-email" type="email" required autocomplete="email"><span class="tms-err">Please enter a valid email.</span></div>
+        <div><label for="f-org">Organization</label><input id="f-org" required autocomplete="organization"><span class="tms-err">Please enter your organization.</span></div>
+        <div><label for="f-type">Organization type</label>
+          <select id="f-type" required><option value="">Select…</option><option>Chapter (PMI or other)</option><option>Professional association or society</option><option>Nonprofit organization</option><option>Trade association</option><option>Other membership organization</option></select><span class="tms-err">Please choose a type.</span></div>
+        <div><label for="f-size">Number of members <span>(optional)</span></label>
+          <select id="f-size"><option value="">Select…</option><option>Under 250</option><option>250–1,000</option><option>1,000–5,000</option><option>5,000+</option></select></div>
+        <div><label for="f-phone">Phone <span>(optional)</span></label><input id="f-phone" type="tel" autocomplete="tel"></div>
+        <fieldset class="tms-full">
+          <legend>What can we help with? <span style="font-weight:500;color:var(--tms-muted)">(optional)</span></legend>
+          <div class="tms-opts">
+            <label><input type="checkbox"> Full-service</label><label><input type="checkbox"> Events</label><label><input type="checkbox"> Membership</label><label><input type="checkbox"> Finance &amp; admin</label><label><input type="checkbox"> Website &amp; tech</label>
+          </div>
+        </fieldset>
+        <div class="tms-full"><label for="f-msg">Anything else we should know? <span>(optional)</span></label><textarea id="f-msg" rows="4"></textarea></div>
+        <div class="tms-full">
+          <button class="tms-btn tms-btn--primary" type="submit">Send My Request</button>
+        </div>
+      </form>
+      <div class="tms-form-ok" role="status"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg><h3>Thanks, we'll be in touch within one business day.</h3><p class="tms-note">Preview only, nothing was sent.</p></div>
+    </div>
+
+    <aside class="tms-side">
+      <div class="tms-card">
+        <h3>What happens next</h3>
+        <ol class="tms-next">
+          <li><b>We review your note</b>Usually the same day.</li>
+          <li><b>30-minute call</b>We listen and ask a few questions.</li>
+          <li><b>Recommendations</b>A clear proposal if we're a good fit.</li>
+        </ol>
+      </div>
+      <div class="tms-card">
+        <h3>Prefer to talk now?</h3>
+        <ul class="tms-clist">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg><a href="tel:+18448746297">+1 844.874.6297</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><a href="mailto:info@trimaxsecure.com">info@trimaxsecure.com</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>6 Pine Tree Dr, Ste 195<br>Arden Hills, MN 55112</span></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>
+</main>
+</div>
+
+<!-- Footer (Avada: Footer Builder or Global Footer layout section) -->
+<footer class="tms tms-footer">
+  <div class="tms-wrap">
+    <div class="tms-footer__grid">
+      <div>
+        <div class="tms-footer__brand">Trimax<small>Management Services</small></div>
+        <p>Dedicated association management for chapters, professional associations and member-based organizations.</p>
+        <a class="tms-btn tms-btn--primary tms-btn--sm" href="#contact/form">Schedule a Free Consultation</a>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services/full-service">Full-Service Management</a></li>
+          <li><a href="#services/events">Events &amp; Conferences</a></li>
+          <li><a href="#services/membership">Membership &amp; Comms</a></li>
+          <li><a href="#services/finance">Finance, Admin &amp; Vendors</a></li>
+          <li><a href="#services/website">Website &amp; Technology</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#home/results">Client Story</a></li>
+          <li><a href="#home/fit">Is an AMC right for you?</a></li>
+          <li><a href="#contact/form">Request a Proposal</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+18448746297">+1 844.874.6297</a></li>
+          <li><a href="mailto:info@trimaxsecure.com">info@trimaxsecure.com</a></li>
+          <li>6 Pine Tree Dr, Ste 195<br>Arden Hills, MN 55112</li>
+          <li><a href="https://www.linkedin.com/company/37193400/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="tms-footer__bar">
+      <span>&copy; 2026 Trimax Management Services &middot; A <a href="https://trimaxsecure.com/" target="_blank" rel="noopener">Trimax</a> company</span>
+      <nav aria-label="Legal"><a href="/privacy-policy/">Privacy Policy</a></nav>
+    </div>
+  </div>
+</footer>
+
+<!-- Trimax Management Services: mobile sticky CTA + fit check + form validation + structured data
+     Paste into: Avada > Options > Advanced > Code Fields > "Space before </body>" -->
+<div class="tms tms-sticky" id="tmsSticky" role="region" aria-label="Contact shortcut">
+  <a class="tms-call" href="tel:+18448746297" aria-label="Call +1 844.874.6297"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></a>
+  <a class="tms-btn tms-btn--primary" href="#contact/form">Free Consultation</a>
+  <button type="button" aria-label="Close" onclick="document.getElementById('tmsSticky').remove();try{sessionStorage.setItem('tmsStickyClosed','1')}catch(e){}">&times;</button>
+</div>
+<script>
+(function(){
+  /* sticky mobile CTA */
+  var bar=document.getElementById('tmsSticky');
+  if(bar){
+    var closed=false;try{closed=!!sessionStorage.getItem('tmsStickyClosed')}catch(e){}
+    if(closed||/\/contact\/?$/.test(location.pathname)){bar.remove();bar=null}
+  }
+  if(bar){var on=false;window.addEventListener('scroll',function(){var s=window.scrollY>500&&!/^#contact/.test(location.hash);if(s!==on){on=s;bar.classList.toggle('is-visible',s)}},{passive:true})}
+
+  /* fit check */
+  var list=document.getElementById('fitList');
+  if(list){
+    var boxes=list.querySelectorAll('input'),n=boxes.length;
+    var msgs=[
+      ['Start checking to see your fit.','Most organizations we talk to check two or more.'],
+      ['You may only need targeted help.','Starting with one service area is a common first step.'],
+      ['A partner could free real volunteer time.','À la carte support in two or three areas is a good fit.'],
+      ['You\'re a strong fit for full-service support.','Your board is carrying operations it shouldn\'t have to.']
+    ];
+    list.addEventListener('change',function(){
+      var c=0;boxes.forEach(function(b){if(b.checked)c++});
+      var m=c===0?msgs[0]:c===1?msgs[1]:c<4?msgs[2]:msgs[3];
+      document.getElementById('fitCount').textContent=c+' of '+n+' checked';
+      document.getElementById('fitBar').style.width=(c/n*100)+'%';
+      document.getElementById('fitTitle').textContent=m[0];
+      document.getElementById('fitText').textContent=m[1];
+    });
+  }
+
+  /* inline form validation (preview only — Avada Form Builder handles this live) */
+  document.querySelectorAll('.tms-js-form').forEach(function(f){
+    f.addEventListener('submit',function(e){
+      e.preventDefault();var first=null;
+      f.querySelectorAll('[required]').forEach(function(el){
+        var bad=!el.value.trim()||(el.type==='email'&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value));
+        el.parentNode.classList.toggle('is-invalid',bad);el.setAttribute('aria-invalid',bad);
+        if(bad&&!first)first=el;
+      });
+      if(first){first.focus();return}
+      f.parentNode.classList.add('tms-sent');
+    });
+    f.addEventListener('input',function(e){var p=e.target.parentNode;if(p.classList.contains('is-invalid')&&e.target.value.trim()){p.classList.remove('is-invalid');e.target.removeAttribute('aria-invalid')}});
+  });
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ProfessionalService",
+  "name":"Trimax Management Services",
+  "url":"https://trimaxmanagementservices.com/",
+  "description":"Association management services for chapters, professional associations and member-based organizations.",
+  "telephone":"+1-844-874-6297",
+  "email":"info@trimaxsecure.com",
+  "address":{"@type":"PostalAddress","streetAddress":"6 Pine Tree Dr Ste 195","addressLocality":"Arden Hills","addressRegion":"MN","postalCode":"55112","addressCountry":"US"},
+  "parentOrganization":{"@type":"Organization","name":"Trimax","url":"https://trimaxsecure.com/"},
+  "areaServed":"US",
+  "sameAs":["https://www.linkedin.com/company/37193400/"]
+}
+</script>
+
+<!-- PREVIEW-ONLY hash router (not for Avada) -->
+<script>
+(function(){
+  function go(){
+    var h=(location.hash||'#home').slice(1).split('/'),page=h[0]||'home',anchor=h[1];
+    var el=document.getElementById('page-'+page);if(!el){page='home';el=document.getElementById('page-home');}
+    document.querySelectorAll('.pv-page').forEach(function(p){p.classList.toggle('is-active',p===el)});
+    document.querySelectorAll('.pv-nav > a:not(.tms-btn)').forEach(function(a){a.classList.toggle('is-active',a.getAttribute('href')==='#'+page)});
+    document.body.classList.remove('pv-open');
+    var b=document.querySelector('.pv-burger');if(b)b.setAttribute('aria-expanded','false');
+    var t=anchor&&el.querySelector('#'+anchor);
+    if(t){setTimeout(function(){t.scrollIntoView({behavior:'smooth'})},30)}else{window.scrollTo(0,0)}
+    var s=document.getElementById('tmsSticky');if(s&&page==='contact')s.classList.remove('is-visible');
+  }
+  window.addEventListener('hashchange',go);go();
+})();
+</script>
+</body></html>

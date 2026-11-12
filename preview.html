@@ -1,0 +1,992 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trimax Management Services – Site Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>/* =========================================================
+   Trimax Management Services — Global CSS
+   Paste into: Avada > Options > Custom CSS
+   All classes are prefixed "tms-" so they never clash with Avada.
+   ========================================================= */
+
+:root{
+  --tms-navy:#215A78;        /* brand primary (headings) */
+  --tms-navy-dark:#163F55;   /* footer / dark bands */
+  --tms-navy-50:#EEF4F7;     /* tinted surface */
+  --tms-orange:#FE8503;      /* brand accent (CTA) */
+  --tms-orange-dark:#D96F00;
+  --tms-ink:#141617;         /* body text */
+  --tms-muted:#5A6570;       /* secondary text */
+  --tms-line:#E3E7EB;
+  --tms-bg-soft:#F6F8FA;
+  --tms-white:#FFFFFF;
+  --tms-radius:10px;
+  --tms-shadow:0 1px 2px rgba(20,22,23,.05),0 8px 24px rgba(20,22,23,.06);
+  --tms-font:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+}
+
+/* ---------- Base ---------- */
+.tms{font-family:var(--tms-font);color:var(--tms-ink);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.tms *,.tms *::before,.tms *::after{box-sizing:border-box}
+.tms h1,.tms h2,.tms h3,.tms h4{font-family:var(--tms-font);color:var(--tms-navy);margin:0 0 .5em;line-height:1.2;letter-spacing:-.01em}
+.tms h1{font-size:clamp(34px,4.6vw,54px);font-weight:700}
+.tms h2{font-size:clamp(28px,3.2vw,40px);font-weight:700}
+.tms h3{font-size:20px;font-weight:600}
+.tms p{margin:0 0 1em}
+.tms a{color:var(--tms-navy);text-decoration:none}
+.tms a.tms-btn,.tms a.tms-btn:hover{text-decoration:none}
+.tms a:hover{text-decoration:underline}
+.tms img{max-width:100%;height:auto;display:block}
+.tms ul,.tms ol{margin:0;padding:0;list-style:none}
+
+.tms-section{padding:96px 0}
+.tms-section--soft{background:var(--tms-bg-soft)}
+.tms-section--tint{background:var(--tms-navy-50)}
+.tms-section--tight{padding:48px 0}
+.tms-wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.tms-narrow{max-width:760px}
+.tms-center{text-align:center;margin-left:auto;margin-right:auto}
+.tms-eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--tms-orange-dark);margin-bottom:14px}
+.tms-lead{font-size:19px;color:var(--tms-muted);max-width:680px}
+.tms-center .tms-lead{margin-left:auto;margin-right:auto}
+.tms-head{margin-bottom:48px}
+
+/* ---------- Buttons ---------- */
+.tms-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.tms-center .tms-btns{justify-content:center}
+.tms .tms-btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:14px 26px;border-radius:6px;font-family:var(--tms-font);font-size:16px;font-weight:600;line-height:1.2;border:2px solid transparent;transition:background .15s,border-color .15s,color .15s;cursor:pointer}
+.tms .tms-btn:hover{text-decoration:none}
+.tms .tms-btn--primary{background:var(--tms-orange);color:#fff}
+.tms .tms-btn--primary:hover{background:var(--tms-orange-dark);color:#fff}
+.tms .tms-btn--outline{background:transparent;color:var(--tms-navy);border-color:var(--tms-navy)}
+.tms .tms-btn--outline:hover{background:var(--tms-navy);color:#fff}
+.tms .tms-btn--light{background:#fff;color:var(--tms-navy)}
+.tms .tms-btn--light:hover{background:var(--tms-navy-50);color:var(--tms-navy)}
+.tms .tms-btn--ghost-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+.tms .tms-btn--ghost-light:hover{border-color:#fff;color:#fff;background:rgba(255,255,255,.08)}
+.tms-link{font-weight:600;color:var(--tms-navy)}
+.tms-link::after{content:" \2192"}
+
+/* ---------- Grid ---------- */
+.tms-grid{display:grid;gap:24px}
+.tms-grid--2{grid-template-columns:repeat(2,1fr)}
+.tms-grid--3{grid-template-columns:repeat(3,1fr)}
+.tms-grid--4{grid-template-columns:repeat(4,1fr)}
+.tms-grid--5{grid-template-columns:repeat(5,1fr)}
+.tms-split{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+.tms-split--rev > :first-child{order:2}
+
+/* ---------- Cards ---------- */
+.tms-card{background:#fff;border:1px solid var(--tms-line);border-radius:var(--tms-radius);padding:28px;height:100%}
+.tms-card p{color:var(--tms-muted);margin-bottom:0}
+.tms-card--link{display:flex;flex-direction:column;transition:border-color .15s,box-shadow .15s}
+.tms-card--link:hover{border-color:var(--tms-navy);box-shadow:var(--tms-shadow);text-decoration:none}
+.tms-card--link .tms-link{margin-top:auto;padding-top:18px}
+.tms-icon{width:48px;height:48px;border-radius:10px;background:var(--tms-navy-50);color:var(--tms-navy);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.tms-icon svg{width:24px;height:24px}
+
+/* ---------- Checklist ---------- */
+.tms-check li{position:relative;padding-left:32px;margin-bottom:12px}
+.tms-check li::before{content:"";position:absolute;left:0;top:4px;width:20px;height:20px;border-radius:50%;background:var(--tms-navy-50) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23215A78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/12px no-repeat}
+.tms-check--inline{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:22px}
+.tms-check--inline li{margin:0;font-size:15px;font-weight:500}
+
+/* ---------- Photo placeholder (replace with <img>) ---------- */
+.tms-photo{position:relative;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,#dfe8ee,#c9d8e2);aspect-ratio:4/3;display:flex;align-items:flex-end}
+.tms-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.tms-photo[data-label]::after{content:attr(data-label);margin:16px;padding:6px 10px;font-size:12px;font-weight:600;background:rgba(255,255,255,.9);color:var(--tms-navy);border-radius:4px}
+.tms-photo--tall{aspect-ratio:4/5}
+.tms-photo--wide{aspect-ratio:16/9}
+
+/* ---------- Hero ---------- */
+.tms-hero{padding:88px 0 96px;background:linear-gradient(180deg,#fff 0%,var(--tms-bg-soft) 100%)}
+.tms-hero .tms-lead{font-size:20px}
+.tms-hero--page{padding:72px 0 64px;border-bottom:1px solid var(--tms-line)}
+.tms-crumbs{font-size:14px;color:var(--tms-muted);margin-bottom:18px}
+.tms-crumbs a{color:var(--tms-muted)}
+
+/* ---------- Trust bar ---------- */
+.tms-trust{padding:36px 0;border-bottom:1px solid var(--tms-line);background:#fff}
+.tms-trust__label{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--tms-muted);text-align:center;margin-bottom:18px}
+.tms-trust__row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 40px}
+.tms-trust__item{font-weight:700;font-size:17px;color:#8A949E;letter-spacing:-.01em;white-space:nowrap}
+.tms-trust__item img{height:34px;width:auto;filter:grayscale(1);opacity:.7}
+.tms-trust__item--client{color:var(--tms-navy)}
+
+/* ---------- Case study feature ---------- */
+.tms-feature{background:var(--tms-navy);color:#fff;border-radius:18px;padding:56px;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.tms-feature h2,.tms-feature h3{color:#fff}
+.tms-feature .tms-eyebrow{color:#FFB466}
+.tms-feature p{color:rgba(255,255,255,.85)}
+.tms-feature dl{margin:0 0 8px}
+.tms-feature dt{font-weight:700;color:#fff;font-size:14px;text-transform:uppercase;letter-spacing:.08em;margin-top:16px}
+.tms-feature dd{margin:4px 0 0;color:rgba(255,255,255,.85)}
+.tms-scope{display:flex;flex-wrap:wrap;gap:8px}
+.tms-scope span{font-size:13px;font-weight:500;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.18)}
+.tms-feature__panel{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:28px}
+
+/* ---------- Steps ---------- */
+.tms-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:step;position:relative}
+.tms-step{position:relative;padding-top:64px}
+.tms-step::before{counter-increment:step;content:counter(step);position:absolute;top:0;left:0;width:44px;height:44px;border-radius:50%;background:var(--tms-navy);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;z-index:1}
+.tms-step::after{content:"";position:absolute;top:22px;left:52px;right:-16px;height:2px;background:var(--tms-line)}
+.tms-step:last-child::after{display:none}
+.tms-step p{color:var(--tms-muted);margin:0;font-size:16px}
+
+/* ---------- Quote ---------- */
+.tms-quote{background:#fff;border:1px solid var(--tms-line);border-radius:var(--tms-radius);padding:32px;display:flex;flex-direction:column;height:100%}
+.tms-quote blockquote{margin:0 0 24px;font-size:18px;line-height:1.6;color:var(--tms-ink)}
+.tms-quote blockquote::before{content:"\201C";display:block;font-size:56px;line-height:.6;color:var(--tms-orange);margin-bottom:10px;font-family:Georgia,serif}
+.tms-quote cite{font-style:normal;margin-top:auto;display:flex;gap:12px;align-items:center;font-size:15px}
+.tms-quote cite b{display:block;color:var(--tms-navy)}
+.tms-quote cite span{color:var(--tms-muted)}
+.tms-avatar{width:48px;height:48px;border-radius:50%;background:var(--tms-navy-50);flex:none;overflow:hidden}
+.tms-todo{outline:2px dashed var(--tms-orange);outline-offset:4px}
+
+/* ---------- FAQ ---------- */
+.tms-faq details{border-bottom:1px solid var(--tms-line);padding:20px 0}
+.tms-faq summary{cursor:pointer;list-style:none;font-weight:600;font-size:18px;color:var(--tms-navy);display:flex;justify-content:space-between;gap:16px}
+.tms-faq summary::-webkit-details-marker{display:none}
+.tms-faq summary::after{content:"+";font-size:24px;line-height:1;color:var(--tms-orange);flex:none}
+.tms-faq details[open] summary::after{content:"\2212"}
+.tms-faq details p{margin:12px 0 0;color:var(--tms-muted)}
+
+/* ---------- CTA band ---------- */
+.tms-cta{background:var(--tms-navy);color:#fff;padding:88px 0;text-align:center}
+.tms-cta h2{color:#fff;max-width:820px;margin-left:auto;margin-right:auto}
+.tms-cta p{color:rgba(255,255,255,.85);font-size:19px}
+.tms-cta small{display:block;margin-top:18px;color:rgba(255,255,255,.7);font-size:14px}
+
+/* ---------- Services page ---------- */
+.tms-jump{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--tms-line)}
+.tms-jump ul{display:flex;gap:6px;overflow-x:auto;padding:12px 0;scrollbar-width:none}
+.tms-jump a{display:block;white-space:nowrap;font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px;color:var(--tms-navy);background:var(--tms-navy-50)}
+.tms-jump a:hover{background:var(--tms-navy);color:#fff;text-decoration:none}
+.tms-service{scroll-margin-top:80px;padding:88px 0;border-bottom:1px solid var(--tms-line)}
+.tms-service:nth-of-type(even){background:var(--tms-bg-soft)}
+.tms-service__grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.tms-service__box{background:#fff;border:1px solid var(--tms-line);border-radius:var(--tms-radius);padding:28px}
+.tms-service__box h3{font-size:15px;text-transform:uppercase;letter-spacing:.08em;color:var(--tms-muted);margin-bottom:16px}
+.tms-service__proof{margin-top:24px;padding:18px 20px;border-left:3px solid var(--tms-orange);background:#fff;border-radius:0 8px 8px 0;font-size:15px;color:var(--tms-muted)}
+
+/* ---------- Team ---------- */
+.tms-person .tms-photo{aspect-ratio:1/1;margin-bottom:16px}
+.tms-person h3{margin-bottom:2px}
+.tms-person p{color:var(--tms-muted);font-size:15px;margin:0}
+
+/* ---------- Contact ---------- */
+.tms-contact{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:start}
+.tms-form-card{background:#fff;border:1px solid var(--tms-line);border-radius:14px;padding:40px;box-shadow:var(--tms-shadow)}
+.tms-side{display:grid;gap:20px}
+.tms-side .tms-card h3{font-size:18px}
+.tms-next li{counter-increment:n;position:relative;padding-left:40px;margin-bottom:14px;color:var(--tms-muted)}
+.tms-next{counter-reset:n}
+.tms-next li::before{content:counter(n);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:var(--tms-navy-50);color:var(--tms-navy);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+.tms-next li b{color:var(--tms-ink);display:block}
+.tms-contact-list li{display:flex;gap:12px;margin-bottom:12px;font-size:15px}
+.tms-contact-list svg{width:20px;height:20px;color:var(--tms-navy);flex:none;margin-top:3px}
+/* preview-only form styling (in Avada, use Form Builder) */
+.tms-form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.tms-form label{display:block;font-size:14px;font-weight:600;margin-bottom:6px;color:var(--tms-ink)}
+.tms-form input,.tms-form select,.tms-form textarea{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1px solid #C9D1D8;border-radius:6px;background:#fff;color:var(--tms-ink)}
+.tms-form input:focus,.tms-form select:focus,.tms-form textarea:focus{outline:2px solid var(--tms-navy);outline-offset:1px;border-color:var(--tms-navy)}
+.tms-form .tms-full{grid-column:1/-1}
+.tms-form fieldset{border:0;padding:0;margin:0}
+.tms-chips{display:flex;flex-wrap:wrap;gap:8px}
+.tms-chips label{font-weight:500;display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #C9D1D8;border-radius:6px;cursor:pointer;margin:0}
+.tms-chips input{width:auto}
+.tms-form-note{font-size:14px;color:var(--tms-muted);margin-top:12px}
+
+/* ---------- Footer ---------- */
+.tms-footer{background:var(--tms-navy-dark);color:rgba(255,255,255,.78);padding:72px 0 0;font-size:15px}
+.tms-footer a{color:rgba(255,255,255,.78)}
+.tms-footer a:hover{color:#fff}
+.tms-footer__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:56px}
+.tms-footer h4{color:#fff;font-size:14px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:18px}
+.tms-footer li{margin-bottom:10px}
+.tms-footer__brand{font-weight:700;color:#fff;font-size:20px;line-height:1.2;margin-bottom:14px}
+.tms-footer__brand small{display:block;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#FFB466;margin-top:4px}
+.tms-footer__bar{border-top:1px solid rgba(255,255,255,.12);padding:22px 0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:14px}
+.tms-footer__bar nav{display:flex;gap:20px}
+.tms-footer .tms-btn{margin-top:8px}
+
+/* ---------- Mobile sticky CTA ---------- */
+.tms-sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:999;display:none;align-items:center;justify-content:space-between;gap:12px;background:var(--tms-navy);color:#fff;padding:10px 10px 10px 18px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.2);font-family:var(--tms-font);font-size:15px;font-weight:600}
+.tms-sticky .tms-btn{min-height:42px;padding:10px 16px;font-size:14px}
+.tms-sticky button{background:none;border:0;color:rgba(255,255,255,.7);font-size:22px;line-height:1;cursor:pointer;padding:4px 6px}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1024px){
+  .tms-grid--4,.tms-grid--5{grid-template-columns:repeat(2,1fr)}
+  .tms-split,.tms-feature,.tms-service__grid,.tms-contact{grid-template-columns:1fr;gap:40px}
+  .tms-split--rev > :first-child{order:0}
+  .tms-steps{grid-template-columns:repeat(2,1fr);row-gap:40px}
+  .tms-step::after{display:none}
+  .tms-footer__grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:767px){
+  .tms{font-size:16px}
+  .tms-section,.tms-service{padding:64px 0}
+  .tms-hero{padding:48px 0 64px}
+  .tms-wrap{padding:0 16px}
+  .tms-grid--2,.tms-grid--3,.tms-grid--4,.tms-grid--5,.tms-steps,.tms-form{grid-template-columns:1fr}
+  .tms-feature{padding:32px 22px;border-radius:14px}
+  .tms-form-card{padding:24px}
+  .tms-btns .tms-btn{width:100%}
+  .tms-footer__grid{grid-template-columns:1fr}
+  .tms-head{margin-bottom:32px}
+  .tms-sticky.is-visible{display:flex}
+}
+@media (prefers-reduced-motion:reduce){.tms *{transition:none!important}}
+
+html{scroll-behavior:smooth}body{margin:0;background:#fff;color-scheme:light}
+.pv-banner{background:#141617;color:#fff;font:600 13px/1.4 Montserrat,sans-serif;text-align:center;padding:8px 16px}
+.pv-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.97);border-bottom:1px solid var(--tms-line)}
+.pv-header__in{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+.pv-logo{font-weight:700;font-size:22px;color:var(--tms-navy);line-height:1}
+.pv-logo:hover{text-decoration:none}
+.pv-logo small{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--tms-orange-dark);margin-top:4px}
+.pv-nav{display:flex;align-items:center;gap:28px}
+.pv-nav > a:not(.tms-btn){font-weight:600;font-size:15px;color:var(--tms-ink)}
+.pv-nav > a.is-active{color:var(--tms-navy);box-shadow:inset 0 -2px var(--tms-orange)}
+.pv-phone{color:var(--tms-muted)!important;font-weight:500!important}
+.pv-burger{display:none;background:none;border:1px solid var(--tms-line);border-radius:6px;font-size:20px;padding:6px 12px;cursor:pointer;color:var(--tms-navy)}
+.tms-jump{top:76px}
+.pv-page{display:none}.pv-page.is-active{display:block}
+@media (max-width:900px){
+  .pv-burger{display:block}
+  .pv-nav{display:none;position:absolute;top:76px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:16px;gap:4px;border-bottom:1px solid var(--tms-line)}
+  .pv-open .pv-nav{display:flex}
+  .pv-nav > a:not(.tms-btn){padding:12px 4px;border-bottom:1px solid var(--tms-line)}
+  .pv-nav .tms-btn{margin-top:12px}
+}</style></head>
+<body>
+<div class="pv-banner">Design preview &middot; Photos, quotes and [bracketed] items are placeholders</div>
+
+<header class="tms pv-header">
+  <div class="tms-wrap pv-header__in">
+    <a href="#home" class="pv-logo">Trimax<small>Management Services</small></a>
+    <button class="pv-burger" aria-label="Menu" onclick="document.body.classList.toggle('pv-open')">&#9776;</button>
+    <nav class="pv-nav">
+      <a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a>
+      <a href="tel:+18448746297" class="pv-phone">+1 844.874.6297</a>
+      <a class="tms-btn tms-btn--primary" href="#contact">Schedule a Consultation</a>
+    </nav>
+  </div>
+</header>
+<main class="pv-page" id="page-home">
+<section class="tms tms-hero">
+  <div class="tms-wrap tms-split">
+    <div>
+      <span class="tms-eyebrow">Association Management Services</span>
+      <h1>Association management that gives your volunteers their time back.</h1>
+      <p class="tms-lead">We run the day-to-day operations of chapters and professional associations, including events, membership, finances, website and board support, with one dedicated team that knows your organization by name.</p>
+      <div class="tms-btns">
+        <a class="tms-btn tms-btn--primary" href="#contact">Schedule a Consultation</a>
+        <a class="tms-btn tms-btn--outline" href="#services">See Our Services</a>
+      </div>
+      <ul class="tms-check tms-check--inline">
+        <li>One named account manager</li>
+        <li>Response times in writing</li>
+        <li>Trusted by PMI Minnesota Chapter</li>
+      </ul>
+    </div>
+    <div class="tms-photo tms-photo--tall" data-label="Photo: real chapter event or team at work"></div>
+  </div>
+</section>
+
+
+<section class="tms tms-trust">
+  <div class="tms-wrap">
+    <p class="tms-trust__label">Trusted by association leaders &middot; Fluent in the platforms you already use</p>
+    <div class="tms-trust__row">
+      <span class="tms-trust__item tms-trust__item--client">PMI Minnesota Chapter</span>
+      <span class="tms-trust__item">Wild Apricot</span>
+      <span class="tms-trust__item">Personify</span>
+      <span class="tms-trust__item">iMIS</span>
+      <span class="tms-trust__item">QuickBooks</span>
+      <span class="tms-trust__item">Microsoft 365</span>
+    </div>
+  </div>
+</section>
+
+
+<section class="tms tms-section">
+  <div class="tms-wrap">
+    <div class="tms-head tms-center tms-narrow">
+      <span class="tms-eyebrow">Sound familiar?</span>
+      <h2>Running a chapter shouldn't feel like a second job.</h2>
+      <p class="tms-lead">Volunteer leaders join to advance their profession, not to chase invoices, rebuild registration forms or relearn every process when the board changes.</p>
+    </div>
+    <div class="tms-grid tms-grid--3">
+      <div class="tms-card">
+        <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Volunteer burnout</h3>
+        <p>Your most committed volunteers spend their evenings on admin instead of on members.</p>
+      </div>
+      <div class="tms-card">
+        <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5M3 21v-5h5"/></svg></div>
+        <h3>Lost continuity</h3>
+        <p>Knowledge walks out the door with every board transition, and the next team starts over.</p>
+      </div>
+      <div class="tms-card">
+        <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 10 5-10 5L2 7l10-5Z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h3>Disconnected tools</h3>
+        <p>Membership, events, email and finances live in different systems that nobody fully owns.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="tms tms-section tms-section--soft">
+  <div class="tms-wrap">
+    <div class="tms-head tms-center tms-narrow">
+      <span class="tms-eyebrow">What we do</span>
+      <h2>Everything your association needs, handled by one dedicated team.</h2>
+      <p class="tms-lead">Choose full-service management or only the areas where you need support.</p>
+    </div>
+    <div class="tms-grid tms-grid--3">
+      <a class="tms-card tms-card--link" href="#services/full-service">
+        <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg></div>
+        <h3>Full-Service Association Management</h3>
+        <p>Your complete operations team: one partner for every day-to-day function.</p>
+        <span class="tms-link">Learn more</span>
+      </a>
+      <a class="tms-card tms-card--link" href="#services/events">
+        <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+        <h3>Event &amp; Conference Management</h3>
+        <p>From monthly chapter meetings to multi-day conferences: venues, registration and on-site logistics.</p>
+        <span class="tms-link">Learn more</span>
+      </a>
+      <a class="tms-card tms-card--link" href="#services/membership">
+        <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Membership Management</h3>
+        <p>Recruitment, renewals and member care, handled consistently all year.</p>
+        <span class="tms-link">Learn more</span>
+      </a>
+      <a class="tms-card tms-card--link" href="#services/finance">
+        <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 16v-5M12 16V8M17 16v-8"/></svg></div>
+        <h3>Financial &amp; Administrative Services</h3>
+        <p>Bookkeeping, invoicing, budgets, vendors and the admin that keeps things moving.</p>
+        <span class="tms-link">Learn more</span>
+      </a>
+      <a class="tms-card tms-card--link" href="#services/website">
+        <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3>Website &amp; Digital Operations</h3>
+        <p>A current, secure website, member platform and email program, backed by Trimax's IT team.</p>
+        <span class="tms-link">Learn more</span>
+      </a>
+      <a class="tms-card tms-card--link" href="#services/board">
+        <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></svg></div>
+        <h3>Board Governance Support</h3>
+        <p>Meeting support, records, smooth board transitions and strategic planning facilitation.</p>
+        <span class="tms-link">Learn more</span>
+      </a>
+    </div>
+    <p class="tms-center" style="margin-top:32px;color:var(--tms-muted)">Not sure what you need? <a class="tms-link" href="#contact">Talk to our team</a></p>
+  </div>
+</section>
+
+
+<section class="tms tms-section" id="results">
+  <div class="tms-wrap">
+    <div class="tms-feature">
+      <div>
+        <span class="tms-eyebrow">Client story</span>
+        <h2>How PMI Minnesota Chapter freed its volunteer leaders to focus on members.</h2>
+        <dl>
+          <dt>The challenge</dt>
+          <dd>A growing, volunteer-led chapter carrying a full calendar of events, a large membership and the finances, website and board work that come with it.</dd>
+          <dt>Our role</dt>
+          <dd>Trimax serves as the chapter's operations team, with a dedicated point of contact across every function below.</dd>
+        </dl>
+        <div class="tms-btns">
+          <a class="tms-btn tms-btn--light" href="#contact">Talk to Our Team</a>
+        </div>
+      </div>
+      <div class="tms-feature__panel">
+        <h3 style="font-size:16px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px">What we manage for PMI Minnesota</h3>
+        <div class="tms-scope">
+          <span>Events</span><span>Website</span><span>Membership</span><span>Finance &amp; Accounting</span><span>Administration</span><span>Board Support</span><span>Communications</span><span>Vendors</span><span>Technology</span><span>Strategic Planning</span>
+        </div>
+        <!-- TODO: add 2–3 approved metrics or a short approved quote from a chapter leader here -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="tms tms-section tms-section--soft">
+  <div class="tms-wrap">
+    <div class="tms-head tms-center tms-narrow">
+      <span class="tms-eyebrow">Who we serve</span>
+      <h2>Built for chapters, associations and member-based organizations.</h2>
+    </div>
+    <div class="tms-grid tms-grid--5">
+      <div class="tms-card"><h3>PMI &amp; Professional Chapters</h3><p>Volunteer-led chapters with busy event calendars and annual board turnover.</p></div>
+      <div class="tms-card"><h3>Professional Associations</h3><p>Societies that run conferences, credentials and member programs.</p></div>
+      <div class="tms-card"><h3>Nonprofit Organizations</h3><p>Mission-driven teams that need lean, transparent operations.</p></div>
+      <div class="tms-card"><h3>Trade Associations</h3><p>Industry groups serving member companies, sponsors and events.</p></div>
+      <div class="tms-card"><h3>Membership Organizations</h3><p>Communities focused on growth, renewals and engagement.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="tms tms-section">
+  <div class="tms-wrap">
+    <div class="tms-head tms-center tms-narrow">
+      <span class="tms-eyebrow">How it works</span>
+      <h2>A clear path from first call to fully supported.</h2>
+    </div>
+    <div class="tms-steps">
+      <div class="tms-step"><h3>Discovery call</h3><p>A free 30-minute conversation about your organization, goals and pain points.</p></div>
+      <div class="tms-step"><h3>Operational assessment</h3><p>We review your current tools, processes and calendar to see where we help most.</p></div>
+      <div class="tms-step"><h3>Tailored proposal</h3><p>A clear scope and pricing for full-service or specific areas. No surprises.</p></div>
+      <div class="tms-step"><h3>Onboarding &amp; support</h3><p>A structured handover, then a dedicated team and regular reporting to your board.</p></div>
+    </div>
+    <div class="tms-btns tms-center" style="justify-content:center;margin-top:48px">
+      <a class="tms-btn tms-btn--primary" href="#contact">Schedule a Consultation</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="tms tms-section tms-section--tint">
+  <div class="tms-wrap tms-split tms-split--rev">
+    <div>
+      <span class="tms-eyebrow">Why Trimax</span>
+      <h2>A dedicated team, not a vendor juggling dozens of clients.</h2>
+      <ul class="tms-check" style="margin-top:24px">
+        <li><b>One named point of contact.</b> You always know who to call, and they know your organization.</li>
+        <li><b>Response commitments in writing.</b> Clear service levels, not vague promises.</li>
+        <li><b>Technology expertise built in.</b> Backed by Trimax's IT, cloud and security team.</li>
+        <li><b>Flexible engagement.</b> Start with one service or hand over full operations.</li>
+      </ul>
+    </div>
+    <div class="tms-photo" data-label="Photo: your team (real people, not stock)"></div>
+  </div>
+</section>
+
+
+<section class="tms tms-section">
+  <div class="tms-wrap">
+    <div class="tms-head tms-center tms-narrow">
+      <span class="tms-eyebrow">In their words</span>
+      <h2>What association leaders say.</h2>
+    </div>
+    <div class="tms-grid tms-grid--2">
+      <figure class="tms-quote tms-todo" style="margin:0">
+        <blockquote>[Approved quote from a PMI Minnesota Chapter board member: what changed for volunteers after Trimax took over operations.]</blockquote>
+        <cite><span class="tms-avatar"></span><span><b>[Name]</b><span>[Title], PMI Minnesota Chapter</span></span></cite>
+      </figure>
+      <figure class="tms-quote tms-todo" style="margin:0">
+        <blockquote>[Approved quote from the chapter treasurer or another leader: responsiveness, reporting or event results.]</blockquote>
+        <cite><span class="tms-avatar"></span><span><b>[Name]</b><span>[Title], [Organization]</span></span></cite>
+      </figure>
+    </div>
+  </div>
+</section>
+
+
+<section class="tms tms-section tms-section--soft">
+  <div class="tms-wrap tms-narrow">
+    <div class="tms-head tms-center">
+      <span class="tms-eyebrow">FAQ</span>
+      <h2>Questions association boards ask us.</h2>
+    </div>
+    <div class="tms-faq">
+      <details><summary>How much does association management cost?</summary><p>Pricing depends on your size, event calendar and which services you need. After a short discovery call, we send a clear proposal with a fixed monthly scope so your board can budget with confidence.</p></details>
+      <details><summary>Can we start with just one service?</summary><p>Yes. Many organizations start with events, finances or the website and add more over time. You choose the scope.</p></details>
+      <details><summary>How does onboarding work?</summary><p>We document your current processes, take over systems and accounts in a planned order, and meet with your board regularly during the transition so nothing is dropped.</p></details>
+      <details><summary>Who will we work with day to day?</summary><p>A named account manager who knows your organization, supported by specialists in events, finance and technology.</p></details>
+      <details><summary>Which platforms do you support?</summary><p>We work with common association tools including Wild Apricot, Personify, iMIS, QuickBooks, Microsoft 365 and WordPress, and can help you choose new ones when needed.</p></details>
+    </div>
+  </div>
+</section>
+
+
+<section class="tms tms-cta">
+  <div class="tms-wrap">
+    <h2>Ready to see what a dedicated team could do for your organization?</h2>
+    <p>Book a free 30-minute consultation. We'll listen first, then show you where we can help.</p>
+    <div class="tms-btns" style="justify-content:center">
+      <a class="tms-btn tms-btn--primary" href="#contact">Schedule a Consultation</a>
+      <a class="tms-btn tms-btn--ghost-light" href="#contact/proposal">Request a Proposal</a>
+    </div>
+    <small>No obligation. We reply within one business day.</small>
+  </div>
+</section>
+</main><main class="pv-page" id="page-services">
+<section class="tms tms-hero tms-hero--page">
+  <div class="tms-wrap">
+    <p class="tms-crumbs"><a href="#home">Home</a> / Services</p>
+    <span class="tms-eyebrow">Services</span>
+    <h1>Full-service management, or just the help you need.</h1>
+    <p class="tms-lead">Six service areas, one dedicated team. Hand us your full operations or pick the areas that take the most volunteer time.</p>
+    <div class="tms-btns">
+      <a class="tms-btn tms-btn--primary" href="#contact">Schedule a Consultation</a>
+      <a class="tms-btn tms-btn--outline" href="#contact/proposal">Request a Proposal</a>
+    </div>
+  </div>
+</section>
+
+
+<nav class="tms tms-jump" aria-label="Services on this page">
+  <div class="tms-wrap">
+    <ul>
+      <li><a href="#services/full-service">Full-Service</a></li>
+      <li><a href="#services/events">Events &amp; Conferences</a></li>
+      <li><a href="#services/membership">Membership</a></li>
+      <li><a href="#services/finance">Financial &amp; Admin</a></li>
+      <li><a href="#services/website">Website &amp; Digital</a></li>
+      <li><a href="#services/board">Board Governance</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<section class="tms tms-service" id="full-service">
+  <div class="tms-wrap tms-service__grid">
+    <div>
+      <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg></div>
+      <h2>Full-Service Association Management</h2>
+      <p class="tms-lead">Your association's operations team, without the overhead of hiring one.</p>
+      <p>We take on the day-to-day work across events, membership, finances, communications, website and board support, coordinated by one account manager who reports to your board.</p>
+      <ul class="tms-check" style="margin-top:20px">
+        <li>One point of contact for everything</li>
+        <li>Continuity through every board transition</li>
+        <li>Predictable monthly cost</li>
+        <li>Volunteers freed to focus on members and mission</li>
+      </ul>
+      <div class="tms-service__proof">This is how we support <b>PMI Minnesota Chapter</b> across all ten operational areas.</div>
+    </div>
+    <div class="tms-service__box">
+      <h3>How we work</h3>
+      <ol class="tms-next">
+        <li><b>Discovery &amp; assessment</b>Review your calendar, systems, finances and pain points.</li>
+        <li><b>Transition plan</b>A documented handover of accounts, processes and vendors.</li>
+        <li><b>Ongoing operations</b>Daily management by your dedicated team.</li>
+        <li><b>Reporting</b>Monthly updates and regular board reviews.</li>
+      </ol>
+      <a class="tms-btn tms-btn--primary" href="#contact" style="margin-top:12px">Schedule a Consultation</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="tms tms-service" id="events">
+  <div class="tms-wrap tms-service__grid">
+    <div>
+      <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+      <h2>Event &amp; Conference Management</h2>
+      <p class="tms-lead">Events your members remember, without the volunteer burnout.</p>
+      <p>From monthly chapter meetings and professional development days to multi-day conferences, in person, virtual or hybrid.</p>
+      <ul class="tms-check" style="margin-top:20px">
+        <li>Venue sourcing and vendor negotiation</li>
+        <li>Registration, payments and attendee communication</li>
+        <li>Speaker and sponsor coordination</li>
+        <li>On-site logistics and post-event reporting</li>
+        <li>PDU / CEU tracking where required</li>
+      </ul>
+    </div>
+    <div class="tms-service__box">
+      <h3>How we work</h3>
+      <ol class="tms-next">
+        <li><b>Brief</b>Goals, audience, budget and dates.</li>
+        <li><b>Plan</b>Venue, vendors, run-of-show and timeline.</li>
+        <li><b>Promote &amp; register</b>Emails, event pages and registration.</li>
+        <li><b>Deliver &amp; report</b>On-site or virtual delivery, then a results summary.</li>
+      </ol>
+      <a class="tms-btn tms-btn--primary" href="#contact" style="margin-top:12px">Talk to Our Team</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="tms tms-service" id="membership">
+  <div class="tms-wrap tms-service__grid">
+    <div>
+      <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <h2>Membership Management</h2>
+      <p class="tms-lead">Grow membership and keep the members you have.</p>
+      <p>Consistent recruitment, renewals and member care, managed in the platform you already use.</p>
+      <ul class="tms-check" style="margin-top:20px">
+        <li>Renewal reminders and automated workflows</li>
+        <li>Member database clean-up and upkeep</li>
+        <li>New member onboarding journey</li>
+        <li>Member inquiries and support desk</li>
+        <li>Retention and engagement reporting</li>
+      </ul>
+    </div>
+    <div class="tms-service__box">
+      <h3>How we work</h3>
+      <ol class="tms-next">
+        <li><b>Data review</b>Clean and organize your member records.</li>
+        <li><b>Renewal workflow</b>Set up reminders and follow-ups.</li>
+        <li><b>Engagement calendar</b>Plan touchpoints across the year.</li>
+        <li><b>Reporting</b>Track renewals, growth and engagement.</li>
+      </ol>
+      <a class="tms-btn tms-btn--primary" href="#contact" style="margin-top:12px">Schedule a Consultation</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="tms tms-service" id="finance">
+  <div class="tms-wrap tms-service__grid">
+    <div>
+      <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 16v-5M12 16V8M17 16v-8"/></svg></div>
+      <h2>Financial &amp; Administrative Services</h2>
+      <p class="tms-lead">Clean books, clear reports, confident treasurers.</p>
+      <p>Accounting support and the daily administration that keeps your organization running, including vendor and contract management.</p>
+      <ul class="tms-check" style="margin-top:20px">
+        <li>Bookkeeping and reconciliation in QuickBooks</li>
+        <li>Invoicing, payments and payment gateways</li>
+        <li>Monthly financial reports for the board</li>
+        <li>Budget preparation and audit support</li>
+        <li>Vendor management, contracts and renewals</li>
+        <li>Inbox, records and day-to-day administration</li>
+      </ul>
+    </div>
+    <div class="tms-service__box">
+      <h3>How we work</h3>
+      <ol class="tms-next">
+        <li><b>Setup</b>Review accounts, access and current processes.</li>
+        <li><b>Reconcile</b>Bring the books up to date.</li>
+        <li><b>Monthly close</b>Reports your treasurer can present.</li>
+        <li><b>Annual cycle</b>Budget, year-end and audit support.</li>
+      </ol>
+      <a class="tms-btn tms-btn--primary" href="#contact/proposal" style="margin-top:12px">Request a Proposal</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="tms tms-service" id="website">
+  <div class="tms-wrap tms-service__grid">
+    <div>
+      <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <h2>Website &amp; Digital Operations</h2>
+      <p class="tms-lead">A website and communications program that work as hard as your volunteers.</p>
+      <p>We keep your site, member platform, email and technology current and secure, backed by Trimax's IT and security team.</p>
+      <ul class="tms-check" style="margin-top:20px">
+        <li>Website updates, hosting, security and backups</li>
+        <li>Member platform setup and integration</li>
+        <li>Newsletters, email campaigns and social posts</li>
+        <li>Microsoft 365, accounts and technology support</li>
+        <li>Monthly analytics</li>
+      </ul>
+    </div>
+    <div class="tms-service__box">
+      <h3>How we work</h3>
+      <ol class="tms-next">
+        <li><b>Audit</b>Review your site, tools and communications.</li>
+        <li><b>Fix priorities</b>Security, speed and broken journeys first.</li>
+        <li><b>Ongoing updates</b>Content, campaigns and support.</li>
+        <li><b>Report</b>Monthly traffic and engagement summary.</li>
+      </ol>
+      <a class="tms-btn tms-btn--primary" href="#contact" style="margin-top:12px">Talk to Our Team</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="tms tms-service" id="board">
+  <div class="tms-wrap tms-service__grid">
+    <div>
+      <div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></svg></div>
+      <h2>Board Governance Support</h2>
+      <p class="tms-lead">A board that spends its time on strategy, not logistics.</p>
+      <p>Practical support for meetings, records and transitions, plus facilitation for strategic planning.</p>
+      <ul class="tms-check" style="margin-top:20px">
+        <li>Agendas, minutes and board calendar</li>
+        <li>Board transition and onboarding kit</li>
+        <li>Bylaw and policy review support</li>
+        <li>Volunteer recruitment and coordination</li>
+        <li>Strategic planning sessions</li>
+      </ul>
+    </div>
+    <div class="tms-service__box">
+      <h3>How we work</h3>
+      <ol class="tms-next">
+        <li><b>Governance review</b>Bylaws, policies and current practices.</li>
+        <li><b>Meeting rhythm</b>A calendar and templates that stick.</li>
+        <li><b>Transition toolkit</b>So every new board starts strong.</li>
+        <li><b>Strategic planning</b>Annual facilitated session.</li>
+      </ol>
+      <a class="tms-btn tms-btn--primary" href="#contact" style="margin-top:12px">Schedule a Consultation</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="tms tms-cta">
+  <div class="tms-wrap">
+    <h2>Not sure which services you need?</h2>
+    <p>Tell us where your volunteers spend the most time. We'll recommend a starting point.</p>
+    <div class="tms-btns" style="justify-content:center">
+      <a class="tms-btn tms-btn--primary" href="#contact">Schedule a Consultation</a>
+      <a class="tms-btn tms-btn--ghost-light" href="#contact/proposal">Request a Proposal</a>
+    </div>
+  </div>
+</section>
+</main><main class="pv-page" id="page-about">
+<section class="tms tms-hero tms-hero--page">
+  <div class="tms-wrap tms-split">
+    <div>
+      <p class="tms-crumbs"><a href="#home">Home</a> / About</p>
+      <span class="tms-eyebrow">About us</span>
+      <h1>The team behind the teams that move professions forward.</h1>
+      <p class="tms-lead">Trimax Management Services gives chapters and associations a dedicated operations team, so volunteer leaders can focus on members, programs and mission.</p>
+    </div>
+    <div class="tms-photo" data-label="Photo: team photo"></div>
+  </div>
+</section>
+
+
+<section class="tms tms-section">
+  <div class="tms-wrap tms-split">
+    <div>
+      <span class="tms-eyebrow">Our story</span>
+      <h2>Built from technology, focused on people.</h2>
+    </div>
+    <div>
+      <p>Trimax Management Services is part of Trimax, a technology company with teams in the United States, Australia, the Philippines and Türkiye. Our work with associations grew from helping organizations run their systems, and then their operations.</p>
+      <p>Today we partner with PMI Minnesota Chapter as its operations team, managing events, membership, finances, website, board support and more.</p>
+      <p>We stay deliberately small. Every client works with a named team that knows their organization, and our response commitments are in writing.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="tms tms-section tms-section--soft">
+  <div class="tms-wrap">
+    <div class="tms-head tms-center tms-narrow">
+      <span class="tms-eyebrow">How we work</span>
+      <h2>What you can expect from us.</h2>
+    </div>
+    <div class="tms-grid tms-grid--4">
+      <div class="tms-card"><div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h3>Dedicated</h3><p>A named account manager, not a ticket queue.</p></div>
+      <div class="tms-card"><div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h3>Accountable</h3><p>Response times and service levels in writing.</p></div>
+      <div class="tms-card"><div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Transparent</h3><p>Clear scope, clear pricing and regular reporting to your board.</p></div>
+      <div class="tms-card"><div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div><h3>Mission-first</h3><p>We measure success by what your volunteers can do again.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="tms tms-section">
+  <div class="tms-wrap">
+    <div class="tms-head tms-center tms-narrow">
+      <span class="tms-eyebrow">Our team</span>
+      <h2>The people you'll work with.</h2>
+    </div>
+    <div class="tms-grid tms-grid--4">
+      <div class="tms-person"><div class="tms-photo" data-label="Headshot"></div><h3>[Name]</h3><p>[Role], Account Manager</p></div>
+      <div class="tms-person"><div class="tms-photo" data-label="Headshot"></div><h3>[Name]</h3><p>[Role], Events</p></div>
+      <div class="tms-person"><div class="tms-photo" data-label="Headshot"></div><h3>[Name]</h3><p>[Role], Finance &amp; Admin</p></div>
+      <div class="tms-person"><div class="tms-photo" data-label="Headshot"></div><h3>[Name]</h3><p>[Role], Digital &amp; Technology</p></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="tms tms-section tms-section--tint">
+  <div class="tms-wrap tms-split tms-split--rev">
+    <div>
+      <span class="tms-eyebrow">Backed by Trimax</span>
+      <h2>Your data and systems are in expert hands.</h2>
+      <p>Most association management companies outsource technology. We have it in-house. Our parent company's cloud, IT and security specialists support your website, member data and accounts.</p>
+      <ul class="tms-check" style="margin-top:20px">
+        <li>Secure hosting, backups and access management</li>
+        <li>Microsoft 365 and platform expertise</li>
+        <li>Offices in four countries</li>
+      </ul>
+      <p style="margin-top:20px"><a class="tms-link" href="https://trimaxsecure.com/" target="_blank" rel="noopener">Visit trimaxsecure.com</a></p>
+    </div>
+    <div class="tms-photo" data-label="Photo: office or team at work"></div>
+  </div>
+</section>
+
+
+<section class="tms tms-cta">
+  <div class="tms-wrap">
+    <h2>Let's talk about your organization.</h2>
+    <p>A free 30-minute conversation, no obligation.</p>
+    <div class="tms-btns" style="justify-content:center">
+      <a class="tms-btn tms-btn--primary" href="#contact">Talk to Our Team</a>
+    </div>
+  </div>
+</section>
+</main><main class="pv-page" id="page-contact">
+<section class="tms tms-hero tms-hero--page">
+  <div class="tms-wrap tms-narrow">
+    <p class="tms-crumbs"><a href="#home">Home</a> / Contact</p>
+    <span class="tms-eyebrow">Contact</span>
+    <h1>Let's talk about your organization.</h1>
+    <p class="tms-lead">Tell us a little about your association and what you need. We reply within one business day.</p>
+  </div>
+</section>
+
+
+<section class="tms tms-section" id="proposal">
+  <div class="tms-wrap tms-contact">
+
+
+<div class="tms tms-form-card">
+  <h2 style="font-size:26px">Schedule a consultation or request a proposal</h2>
+  <p style="color:var(--tms-muted)">Takes about one minute.</p>
+  <form class="tms-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='Preview only – not sent';">
+    <div class="tms-full">
+      <label>I'd like to</label>
+      <div class="tms-chips">
+        <label><input type="radio" name="type" checked> Schedule a consultation</label>
+        <label><input type="radio" name="type"> Request a proposal</label>
+      </div>
+    </div>
+    <div><label for="f-name">Full name *</label><input id="f-name" required autocomplete="name"></div>
+    <div><label for="f-email">Work email *</label><input id="f-email" type="email" required autocomplete="email"></div>
+    <div><label for="f-org">Organization *</label><input id="f-org" required autocomplete="organization"></div>
+    <div><label for="f-type">Organization type *</label>
+      <select id="f-type" required><option value="">Select…</option><option>Chapter (PMI or other)</option><option>Professional association</option><option>Nonprofit organization</option><option>Trade association</option><option>Other membership organization</option></select></div>
+    <div><label for="f-size">Number of members</label>
+      <select id="f-size"><option value="">Select…</option><option>Under 250</option><option>250–1,000</option><option>1,000–5,000</option><option>5,000+</option></select></div>
+    <div><label for="f-phone">Phone (optional)</label><input id="f-phone" type="tel" autocomplete="tel"></div>
+    <fieldset class="tms-full">
+      <label>What can we help with?</label>
+      <div class="tms-chips">
+        <label><input type="checkbox"> Full-service</label><label><input type="checkbox"> Events</label><label><input type="checkbox"> Membership</label><label><input type="checkbox"> Finance &amp; admin</label><label><input type="checkbox"> Website &amp; digital</label><label><input type="checkbox"> Board support</label><label><input type="checkbox"> Not sure yet</label>
+      </div>
+    </fieldset>
+    <div class="tms-full"><label for="f-msg">Anything else we should know?</label><textarea id="f-msg" rows="4"></textarea></div>
+    <div class="tms-full">
+      <button class="tms-btn tms-btn--primary" type="submit">Send My Request</button>
+      <p class="tms-form-note">No obligation. We reply within one business day.</p>
+    </div>
+  </form>
+</div>
+
+
+
+<aside class="tms tms-side">
+  <div class="tms-card">
+    <h3>What happens next</h3>
+    <ol class="tms-next">
+      <li><b>We review your note</b>Usually the same day.</li>
+      <li><b>30-minute call</b>We listen and ask a few questions.</li>
+      <li><b>Recommendations</b>A clear proposal if we're a good fit.</li>
+    </ol>
+  </div>
+  <div class="tms-card">
+    <h3>Reach us directly</h3>
+    <ul class="tms-contact-list">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg><a href="tel:+18448746297">+1 844.874.6297</a></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><a href="mailto:info@trimaxsecure.com">info@trimaxsecure.com</a></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>6 Pine Tree Dr, Ste 195<br>Arden Hills, MN 55112</span></li>
+    </ul>
+  </div>
+  <div class="tms-card" style="background:var(--tms-navy-50);border-color:transparent">
+    <p style="color:var(--tms-ink);margin:0">Trusted by <b>PMI Minnesota Chapter</b> to manage events, membership, finances, website and board support.</p>
+  </div>
+</aside>
+
+
+  </div>
+</section>
+</main>
+<footer class="tms tms-footer">
+  <div class="tms-wrap">
+    <div class="tms-footer__grid">
+      <div>
+        <div class="tms-footer__brand">Trimax<small>Management Services</small></div>
+        <p>Dedicated association management for chapters, professional associations and member-based organizations.</p>
+        <a class="tms-btn tms-btn--primary" href="#contact">Schedule a Consultation</a>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services/full-service">Full-Service Management</a></li>
+          <li><a href="#services/events">Events &amp; Conferences</a></li>
+          <li><a href="#services/membership">Membership</a></li>
+          <li><a href="#services/finance">Financial &amp; Admin</a></li>
+          <li><a href="#services/website">Website &amp; Digital</a></li>
+          <li><a href="#services/board">Board Governance</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#home/results">Client Story</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact/proposal">Request a Proposal</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+18448746297">+1 844.874.6297</a></li>
+          <li><a href="mailto:info@trimaxsecure.com">info@trimaxsecure.com</a></li>
+          <li>6 Pine Tree Dr, Ste 195<br>Arden Hills, MN 55112</li>
+          <li><a href="https://www.linkedin.com/company/37193400/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="tms-footer__bar">
+      <span>&copy; 2026 Trimax Management Services &middot; A <a href="https://trimaxsecure.com/" target="_blank" rel="noopener">Trimax</a> company</span>
+      <nav><a href="/privacy-policy/">Privacy Policy</a></nav>
+    </div>
+  </div>
+</footer>
+
+<!-- Trimax Management Services: mobile sticky CTA + structured data
+     Paste into: Avada > Options > Advanced > Code Fields > "Space before </body>" -->
+<div class="tms tms-sticky" id="tmsSticky" role="region" aria-label="Contact shortcut">
+  <span>Talk to our team</span>
+  <span style="display:flex;align-items:center;gap:4px">
+    <a class="tms-btn tms-btn--primary" href="#contact">Schedule a Call</a>
+    <button type="button" aria-label="Close" onclick="document.getElementById('tmsSticky').remove();try{sessionStorage.setItem('tmsStickyClosed','1')}catch(e){}">&times;</button>
+  </span>
+</div>
+<script>
+(function(){
+  var bar=document.getElementById('tmsSticky');if(!bar)return;
+  try{if(sessionStorage.getItem('tmsStickyClosed')){bar.remove();return;}}catch(e){}
+  if(/\/contact\/?$/.test(location.pathname)||/contact\.html$/.test(location.pathname)){bar.remove();return;}
+  var on=false;window.addEventListener('scroll',function(){var s=window.scrollY>600;if(s!==on){on=s;bar.classList.toggle('is-visible',s);}},{passive:true});
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ProfessionalService",
+  "name":"Trimax Management Services",
+  "url":"https://trimaxmanagementservices.com/",
+  "description":"Association management services for chapters, professional associations and member-based organizations.",
+  "telephone":"+1-844-874-6297",
+  "email":"info@trimaxsecure.com",
+  "address":{"@type":"PostalAddress","streetAddress":"6 Pine Tree Dr Ste 195","addressLocality":"Arden Hills","addressRegion":"MN","postalCode":"55112","addressCountry":"US"},
+  "parentOrganization":{"@type":"Organization","name":"Trimax","url":"https://trimaxsecure.com/"},
+  "areaServed":"US",
+  "sameAs":["https://www.linkedin.com/company/37193400/"]
+}
+</script>
+
+
+<script>
+(function(){
+  function go(){
+    var h=(location.hash||'#home').slice(1).split('/'),page=h[0]||'home',anchor=h[1];
+    var el=document.getElementById('page-'+page);if(!el){page='home';el=document.getElementById('page-home');}
+    document.querySelectorAll('.pv-page').forEach(function(p){p.classList.toggle('is-active',p===el)});
+    document.querySelectorAll('.pv-nav > a:not(.tms-btn)').forEach(function(a){a.classList.toggle('is-active',a.getAttribute('href')==='#'+page)});
+    document.body.classList.remove('pv-open');
+    var t=anchor&&el.querySelector('#'+anchor);
+    if(t){setTimeout(function(){t.scrollIntoView({behavior:'smooth'})},30)}else{window.scrollTo(0,0)}
+  }
+  window.addEventListener('hashchange',go);go();
+})();
+</script>
+</body></html>
