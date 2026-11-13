@@ -168,6 +168,12 @@ a:hover > .tms-link svg,.tms-link:hover svg{transform:translateX(3px)}
 
 /* ---------- Services bento ---------- */
 .tms-bento{display:grid;gap:20px;grid-template-columns:1fr}
+.tms-bento > .tms-card:not(.tms-bento__feat){padding:22px}
+.tms-bento > .tms-card:not(.tms-bento__feat) .tms-icon{width:40px;height:40px;border-radius:10px;margin-bottom:14px}
+.tms-bento > .tms-card:not(.tms-bento__feat) .tms-icon svg{width:20px;height:20px}
+.tms-bento > .tms-card:not(.tms-bento__feat) h3{font-size:17px;margin-bottom:6px}
+.tms-bento > .tms-card:not(.tms-bento__feat) p{font-size:15px;line-height:1.55}
+.tms-bento > .tms-card:not(.tms-bento__feat) .tms-link{padding-top:14px;font-size:15px}
 .tms-bento__feat{background:var(--tms-navy-900);border-color:var(--tms-navy-900);color:rgba(255,255,255,.8)}
 .tms-bento__feat h3{color:#fff;font-size:24px}
 .tms-bento__feat p{color:rgba(255,255,255,.78)}
@@ -230,6 +236,10 @@ a:hover > .tms-link svg,.tms-link:hover svg{transform:translateX(3px)}
 .tms-compare thead th.is-us{background:var(--tms-navy-900);color:#fff}
 .tms-compare td.is-us{background:var(--tms-navy-50);font-weight:600;color:var(--tms-navy-900)}
 .tms-compare tbody th{font-weight:600;color:var(--tms-ink);width:30%}
+.tms-who .tms-card{text-align:center}
+.tms-who .tms-icon{margin:0 auto 16px}
+.tms-who h3{font-size:18px}
+.tms-who .tms-card p{font-size:15px}
 .tms-why{margin-bottom:40px}
 .tms-why h3{font-size:17px}
 .tms-why .tms-card p{font-size:15px}
@@ -395,7 +405,7 @@ a:hover > .tms-link svg,.tms-link:hover svg{transform:translateX(3px)}
   .tms-logos__in{grid-template-columns:auto 1fr;gap:56px}
   .tms-logos__client{padding-right:56px;border-right:1px solid var(--tms-line)}
   .tms-bento{grid-template-columns:repeat(3,1fr)}
-  .tms-bento__feat{grid-column:auto;grid-row:span 3}
+  .tms-bento__feat{grid-column:1/-1}
   .tms-story{grid-template-columns:1.1fr .9fr;gap:56px}
   .tms-fit{grid-template-columns:1.2fr .8fr;gap:48px}
   .tms-fit__result{position:sticky;top:100px}
@@ -408,6 +418,8 @@ a:hover > .tms-link svg,.tms-link:hover svg{transform:translateX(3px)}
   .tms-footer__grid{grid-template-columns:1.4fr 1fr 1fr 1.2fr}
 }
 @media (min-width:1100px){
+  .tms-bento{grid-template-columns:1.25fr repeat(3,1fr)}
+  .tms-bento__feat{grid-column:auto;grid-row:span 2}
   .tms-logos__row{grid-template-columns:repeat(10,1fr)}
 }
 @media (prefers-reduced-motion:reduce){.tms *,.tms *::before,.tms *::after{transition:none!important;scroll-behavior:auto!important}}
@@ -647,6 +659,23 @@ html{scroll-behavior:smooth}body{margin:0;background:#fff;color-scheme:light}
         <p>Microsoft-powered systems, automated renewals and AI-assisted member support.</p>
         <span class="tms-link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- HOME · Who we serve -->
+<section class="tms tms-section" id="who">
+  <div class="tms-wrap">
+    <div class="tms-head tms-center tms-narrow">
+      <span class="tms-eyebrow">Who we serve</span>
+      <h2>Built for organizations run by and for their members.</h2>
+      <p class="tms-lead">Professional associations, chapters, nonprofits and member-based organizations.</p>
+    </div>
+    <div class="tms-grid tms-grid--4 tms-who">
+      <div class="tms-card"><div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><h3>Professional associations</h3><p>Societies running conferences, credentials and member programs.</p></div>
+      <div class="tms-card"><div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M5 16v-3h14v3M12 8v5"/></svg></div><h3>Chapters</h3><p>Volunteer-led chapters with busy event calendars and yearly board changes.</p></div>
+      <div class="tms-card"><div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div><h3>Nonprofits</h3><p>Mission-driven organizations that need lean, transparent operations.</p></div>
+      <div class="tms-card"><div class="tms-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Member-based organizations</h3><p>Communities focused on growth, renewals and engagement.</p></div>
     </div>
   </div>
 </section>
